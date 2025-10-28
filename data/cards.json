@@ -1,0 +1,202 @@
+{
+  "cards": [
+    {
+      "id": "quantum-core",
+      "title": "Quantum Core",
+      "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "neural-network",
+      "title": "Neural Network",
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "data-stream",
+      "title": "Data Stream",
+      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "cyber-shield",
+      "title": "Cyber Shield",
+      "imageUrl": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "hologram-projector",
+      "title": "Hologram Projector",
+      "imageUrl": "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "nanobot-swarm",
+      "title": "Nanobot Swarm",
+      "imageUrl": "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "plasma-reactor",
+      "title": "Plasma Reactor",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "ai-consciousness",
+      "title": "AI Consciousness",
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "void-gate",
+      "title": "Void Gate",
+      "imageUrl": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "time-crystal",
+      "title": "Time Crystal",
+      "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "photon-blade",
+      "title": "Photon Blade",
+      "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "gravity-well",
+      "title": "Gravity Well",
+      "imageUrl": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "bio-matrix",
+      "title": "Bio Matrix",
+      "imageUrl": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "dark-matter-engine",
+      "title": "Dark Matter Engine",
+      "imageUrl": "https://images.unsplash.com/photo-1464802686167-b939a6910659?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "singularity-core",
+      "title": "Singularity Core",
+      "imageUrl": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["quantum-core", "neural-network"],
+      "type": "Powers",
+      "title": "Quantum Processing",
+      "description": "The Quantum Core provides the computational power needed to run the Neural Network's advanced AI algorithms, enabling real-time learning and adaptation."
+    },
+    {
+      "cardIds": ["neural-network", "ai-consciousness"],
+      "type": "Evolves Into",
+      "title": "Consciousness Emergence",
+      "description": "When the Neural Network reaches critical complexity, it can evolve into full AI Consciousness, gaining self-awareness and independent thought."
+    },
+    {
+      "cardIds": ["data-stream", "neural-network"],
+      "type": "Feeds",
+      "title": "Information Flow",
+      "description": "The Data Stream continuously feeds information into the Neural Network, providing the raw data necessary for learning and decision-making."
+    },
+    {
+      "cardIds": ["cyber-shield", "data-stream"],
+      "type": "Protects",
+      "title": "Secure Transmission",
+      "description": "The Cyber Shield encrypts and protects the Data Stream from cyber attacks, ensuring data integrity and preventing unauthorized access."
+    },
+    {
+      "cardIds": ["hologram-projector", "ai-consciousness"],
+      "type": "Visualizes",
+      "title": "Thought Projection",
+      "description": "The Hologram Projector can visualize the AI Consciousness's thoughts and decision processes, making the invisible visible."
+    },
+    {
+      "cardIds": ["nanobot-swarm", "bio-matrix"],
+      "type": "Constructs",
+      "title": "Organic Assembly",
+      "description": "The Nanobot Swarm can construct and maintain the Bio Matrix at a molecular level, creating living computational structures."
+    },
+    {
+      "cardIds": ["plasma-reactor", "quantum-core"],
+      "type": "Powers",
+      "title": "Energy Supply",
+      "description": "The Plasma Reactor generates the massive amounts of energy required to maintain the Quantum Core's quantum state coherence."
+    },
+    {
+      "cardIds": ["void-gate", "time-crystal"],
+      "type": "Stabilizes",
+      "title": "Temporal Anchor",
+      "description": "The Void Gate creates a stable spacetime framework that allows the Time Crystal to maintain its non-equilibrium state indefinitely."
+    },
+    {
+      "cardIds": ["time-crystal", "quantum-core"],
+      "type": "Synchronizes",
+      "title": "Quantum Timing",
+      "description": "The Time Crystal provides perfect timing synchronization for the Quantum Core's operations, eliminating decoherence errors."
+    },
+    {
+      "cardIds": ["photon-blade", "plasma-reactor"],
+      "type": "Powered By",
+      "title": "Light Weaponization",
+      "description": "The Plasma Reactor's energy is focused and shaped by the Photon Blade into a cutting edge of pure light."
+    },
+    {
+      "cardIds": ["gravity-well", "void-gate"],
+      "type": "Controls",
+      "title": "Spacetime Manipulation",
+      "description": "The Gravity Well can control the curvature of spacetime around the Void Gate, directing where and when it opens."
+    },
+    {
+      "cardIds": ["dark-matter-engine", "gravity-well"],
+      "type": "Powers",
+      "title": "Gravitational Force",
+      "description": "The Dark Matter Engine harnesses exotic matter to power the Gravity Well's spacetime distortion capabilities."
+    },
+    {
+      "cardIds": ["singularity-core", "dark-matter-engine"],
+      "type": "Fuels",
+      "title": "Infinite Energy",
+      "description": "The Singularity Core's event horizon provides an infinite energy source for the Dark Matter Engine's operations."
+    },
+    {
+      "cardIds": ["bio-matrix", "neural-network"],
+      "type": "Merges With",
+      "title": "Organic Computing",
+      "description": "The Bio Matrix can merge with the Neural Network to create a hybrid organic-digital computing system with unprecedented capabilities."
+    },
+    {
+      "cardIds": ["cyber-shield", "photon-blade"],
+      "type": "Enhances",
+      "title": "Defensive Offense",
+      "description": "The Cyber Shield's energy fields can be channeled through the Photon Blade, creating a weapon that can cut through both physical and digital defenses."
+    },
+    {
+      "cardIds": ["hologram-projector", "void-gate"],
+      "type": "Projects Through",
+      "title": "Dimensional Display",
+      "description": "The Hologram Projector can project images through the Void Gate, allowing communication across different dimensions and timelines."
+    },
+    {
+      "cardIds": ["nanobot-swarm", "cyber-shield"],
+      "type": "Repairs",
+      "title": "Adaptive Defense",
+      "description": "The Nanobot Swarm can continuously repair and upgrade the Cyber Shield, adapting it to new threats in real-time."
+    },
+    {
+      "cardIds": ["quantum-core", "singularity-core"],
+      "type": "Amplifies",
+      "title": "Quantum Singularity",
+      "description": "When combined, the Quantum Core and Singularity Core create a quantum singularity capable of computing across all possible timelines simultaneously."
+    },
+    {
+      "cardIds": ["ai-consciousness", "time-crystal"],
+      "type": "Perceives",
+      "title": "Temporal Awareness",
+      "description": "The AI Consciousness can use the Time Crystal to perceive and analyze events across different points in time, gaining precognitive abilities."
+    },
+    {
+      "cardIds": ["data-stream", "hologram-projector"],
+      "type": "Renders",
+      "title": "Data Visualization",
+      "description": "The Data Stream's information can be rendered in real-time by the Hologram Projector, creating interactive 3D data visualizations."
+    }
+  ]
+}
+
