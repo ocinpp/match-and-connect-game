@@ -2,9 +2,11 @@
   <div
     :class="[
       'drop-slot',
-      'relative w-[180px] h-[270px] rounded-lg',
+      'relative w-[150px] h-[225px] md:w-[180px] md:h-[270px] rounded-lg',
       'border-2 border-dashed transition-all duration-300',
-      isDragOver ? 'border-matrix-green bg-matrix-green/10 scale-105' : 'border-cyber-blue/50 bg-slot-bg',
+      isDragOver
+        ? 'border-matrix-green bg-matrix-green/10 scale-105'
+        : 'border-cyber-blue/50 bg-slot-bg',
       hasCard ? 'border-solid border-neon-purple' : '',
       shouldShake ? 'animate-shake' : '',
     ]"
@@ -35,12 +37,9 @@
       <p class="text-sm font-semibold">Slot {{ slotIndex }}</p>
       <p class="text-xs mt-1">Drop or Tap Card</p>
     </div>
-    
+
     <!-- Card in Slot -->
-    <div
-      v-else
-      class="absolute inset-0 cursor-pointer group"
-    >
+    <div v-else class="absolute inset-0 cursor-pointer group">
       <!-- Card Image -->
       <div class="absolute inset-0">
         <img
@@ -49,21 +48,23 @@
           class="w-full h-full object-cover rounded-lg"
         />
         <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent rounded-lg"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent rounded-lg"
+        ></div>
       </div>
-      
+
       <!-- Card Title -->
-      <div class="absolute bottom-0 left-0 right-0 p-4">
-        <h3 class="text-white font-bold text-lg text-center drop-shadow-lg">
+      <div class="absolute bottom-0 left-0 right-0 p-2 md:p-4">
+        <h3
+          class="text-white font-bold text-sm md:text-base lg:text-lg text-center drop-shadow-lg"
+        >
           {{ card.title }}
         </h3>
       </div>
-      
+
       <!-- Remove Button -->
       <button
-        class="absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/80 hover:bg-red-500 
-               flex items-center justify-center opacity-0 group-hover:opacity-100 
-               transition-opacity duration-200 z-10"
+        class="absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/80 hover:bg-red-500 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
         @click.stop="handleRemove"
       >
         <svg
@@ -81,7 +82,7 @@
           />
         </svg>
       </button>
-      
+
       <!-- Glow Effect -->
       <div
         class="absolute inset-0 pointer-events-none rounded-lg animate-glow-pulse"
@@ -91,75 +92,78 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { Card } from '~/composables/useGameState'
+import { ref } from "vue";
+import type { Card } from "~/composables/useGameState";
 
 interface Props {
-  slotIndex: number
-  card: Card | null
-  shouldShake?: boolean
+  slotIndex: number;
+  card: Card | null;
+  shouldShake?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   card: null,
   shouldShake: false,
-})
+});
 
 const emit = defineEmits<{
-  cardDropped: [card: Card, slotIndex: number]
-  cardRemoved: [slotIndex: number]
-  slotClicked: [slotIndex: number]
-}>()
+  cardDropped: [card: Card, slotIndex: number];
+  cardRemoved: [slotIndex: number];
+  slotClicked: [slotIndex: number];
+}>();
 
-const isDragOver = ref(false)
-const hasCard = ref(!!props.card)
+const isDragOver = ref(false);
+const hasCard = ref(!!props.card);
 
 // Watch for card changes
-watch(() => props.card, (newCard) => {
-  hasCard.value = !!newCard
-})
+watch(
+  () => props.card,
+  (newCard) => {
+    hasCard.value = !!newCard;
+  }
+);
 
 const handleDragOver = (event: DragEvent) => {
   if (props.card) {
     // Don't allow drop if slot is already filled
-    event.dataTransfer!.dropEffect = 'none'
-    return
+    event.dataTransfer!.dropEffect = "none";
+    return;
   }
-  
-  isDragOver.value = true
-  event.dataTransfer!.dropEffect = 'move'
-}
+
+  isDragOver.value = true;
+  event.dataTransfer!.dropEffect = "move";
+};
 
 const handleDragLeave = () => {
-  isDragOver.value = false
-}
+  isDragOver.value = false;
+};
 
 const handleDrop = (event: DragEvent) => {
-  isDragOver.value = false
-  
+  isDragOver.value = false;
+
   if (props.card) {
     // Slot already has a card
-    return
+    return;
   }
-  
+
   try {
-    const cardData = event.dataTransfer?.getData('application/json')
+    const cardData = event.dataTransfer?.getData("application/json");
     if (cardData) {
-      const card: Card = JSON.parse(cardData)
-      emit('cardDropped', card, props.slotIndex)
+      const card: Card = JSON.parse(cardData);
+      emit("cardDropped", card, props.slotIndex);
     }
   } catch (error) {
-    console.error('Error parsing dropped card data:', error)
+    console.error("Error parsing dropped card data:", error);
   }
-}
+};
 
 const handleRemove = () => {
-  emit('cardRemoved', props.slotIndex)
-}
+  emit("cardRemoved", props.slotIndex);
+};
 
 const handleClick = () => {
-  emit('slotClicked', props.slotIndex)
-}
+  emit("slotClicked", props.slotIndex);
+};
 </script>
 
 <style scoped>
@@ -169,4 +173,3 @@ const handleClick = () => {
   -webkit-user-select: none;
 }
 </style>
-
