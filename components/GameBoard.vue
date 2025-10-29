@@ -97,19 +97,52 @@
         <div
           class="lg:w-auto flex-shrink-0 mt-6 lg:mt-0 pt-4 lg:pt-0 border-t-2 lg:border-t-0 lg:border-l-2 border-cyber-blue/30 lg:pl-4 xl:pl-6 lg:relative"
         >
-          <!-- Mobile: Horizontal title -->
-          <h2
-            class="lg:hidden text-lg md:text-xl font-semibold text-neon-purple mb-4 flex items-center gap-2"
-          >
-            <span
-              class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-neon-purple/20 flex items-center justify-center text-xs md:text-sm"
-              >3</span
+          <!-- Mobile: Horizontal layout with title on left -->
+          <div class="lg:hidden flex gap-2 items-stretch">
+            <!-- Mobile: Horizontal title on left -->
+            <div
+              class="flex-shrink-0 flex items-center justify-center bg-neon-purple/10 rounded-lg px-1"
             >
-            <span class="text-sm md:text-base lg:text-xl">Match Slots</span>
-          </h2>
+              <h2
+                class="text-sm md:text-base font-semibold text-neon-purple flex items-center gap-2"
+                style="writing-mode: sideways-lr"
+              >
+                <span
+                  class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-neon-purple/20 flex items-center justify-center text-xs"
+                  >3</span
+                >
+                <span>Match Slots</span>
+              </h2>
+            </div>
+            <!-- Slots container - take remaining space -->
+            <div class="flex gap-3 sm:gap-4 flex-1">
+              <!-- Slot 1 -->
+              <div class="flex-1">
+                <DropSlot
+                  :slot-index="1"
+                  :card="slot1"
+                  :should-shake="shouldShakeSlots"
+                  @card-dropped="handleCardDropped"
+                  @card-removed="handleCardRemoved"
+                  @slot-clicked="handleSlotClick"
+                />
+              </div>
+              <!-- Slot 2 -->
+              <div class="flex-1">
+                <DropSlot
+                  :slot-index="2"
+                  :card="slot2"
+                  :should-shake="shouldShakeSlots"
+                  @card-dropped="handleCardDropped"
+                  @card-removed="handleCardRemoved"
+                  @slot-clicked="handleSlotClick"
+                />
+              </div>
+            </div>
+          </div>
 
           <!-- Desktop: Vertical layout aligned with rows -->
-          <div class="flex lg:flex-col gap-4 justify-center lg:justify-start">
+          <div class="hidden lg:flex lg:flex-col gap-4 justify-start">
             <!-- Slot 1 - Aligns with Row 1 -->
             <div class="flex gap-2 items-stretch flex-1">
               <!-- Vertical Slot Title (Desktop only) -->
