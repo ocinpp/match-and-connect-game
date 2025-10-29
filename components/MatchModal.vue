@@ -11,8 +11,7 @@
 
         <!-- Modal Content -->
         <div
-          class="relative bg-card-bg border-2 border-matrix-green rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-match-pulse"
-          style="box-shadow: 0 0 40px rgba(255, 214, 10, 0.4)"
+          class="relative bg-card-bg border-2 border-matrix-green rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-glow-highlight animate-match-pulse"
         >
           <!-- Header -->
           <div

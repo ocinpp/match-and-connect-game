@@ -17,6 +17,12 @@ export default {
         "card-bg": "#1a1f3a",
         "slot-bg": "#151a33",
       },
+      boxShadow: {
+        "glow-primary": "0 0 20px rgba(0, 217, 255, 0.5)",
+        "glow-accent": "0 0 20px rgba(255, 0, 110, 0.5)",
+        "glow-highlight": "0 0 40px rgba(255, 214, 10, 0.4)",
+        "glow-card": "inset 0 0 20px rgba(0, 217, 255, 0.3)",
+      },
       animation: {
         "match-pulse": "match-pulse 0.6s ease-in-out",
         shake: "shake 0.5s ease-in-out",

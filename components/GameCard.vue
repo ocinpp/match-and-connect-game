@@ -41,8 +41,7 @@
     <!-- Glow Effect when not disabled -->
     <div
       v-if="!isDisabled"
-      class="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-300"
-      style="box-shadow: inset 0 0 20px rgba(0, 217, 255, 0.3)"
+      class="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-300 shadow-glow-card"
     ></div>
 
     <!-- Disabled Overlay -->
