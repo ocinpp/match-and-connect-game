@@ -92,7 +92,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import type { Card } from "~/composables/useGameState";
 
 interface Props {
@@ -114,6 +114,12 @@ const emit = defineEmits<{
 
 const isDragOver = ref(false);
 const hasCard = ref(!!props.card);
+const isMobile = ref(false);
+
+// Detect if device is mobile
+onMounted(() => {
+  isMobile.value = window.innerWidth < 1024; // lg breakpoint
+});
 
 // Watch for card changes
 watch(
@@ -124,8 +130,8 @@ watch(
 );
 
 const handleDragOver = (event: DragEvent) => {
-  if (props.card) {
-    // Don't allow drop if slot is already filled
+  if (isMobile.value || props.card) {
+    // Don't allow drop if on mobile or slot is already filled
     event.dataTransfer!.dropEffect = "none";
     return;
   }
@@ -135,10 +141,16 @@ const handleDragOver = (event: DragEvent) => {
 };
 
 const handleDragLeave = () => {
-  isDragOver.value = false;
+  if (!isMobile.value) {
+    isDragOver.value = false;
+  }
 };
 
 const handleDrop = (event: DragEvent) => {
+  if (isMobile.value) {
+    return;
+  }
+
   isDragOver.value = false;
 
   if (props.card) {

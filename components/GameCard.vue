@@ -7,7 +7,7 @@
       isDisabled
         ? 'opacity-40 cursor-not-allowed border-gray-600'
         : 'border-cyber-blue hover:border-neon-purple',
-      isSelected ? 'ring-4 ring-matrix-green' : '',
+      isSelected ? 'ring-4 ring-neon-purple' : '',
       isDragging ? 'opacity-50 scale-95' : '',
     ]"
     :draggable="!isDisabled"
@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import type { Card } from "~/composables/useGameState";
 
 interface Props {
@@ -76,9 +76,15 @@ const emit = defineEmits<{
 }>();
 
 const isDragging = ref(false);
+const isMobile = ref(false);
+
+// Detect if device is mobile
+onMounted(() => {
+  isMobile.value = window.innerWidth < 1024; // lg breakpoint
+});
 
 const handleDragStart = (event: DragEvent) => {
-  if (props.isDisabled) {
+  if (props.isDisabled || isMobile.value) {
     event.preventDefault();
     return;
   }
