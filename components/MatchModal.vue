@@ -86,7 +86,7 @@
                   />
                 </div>
                 <p
-                  class="w-24 md:w-32 text-center text-white font-semibold mt-2 break-all"
+                  class="w-24 md:w-32 text-center text-white font-semibold mt-2 break-all md:break-normal"
                 >
                   {{ card1?.title }}
                 </p>
@@ -127,7 +127,7 @@
                   />
                 </div>
                 <p
-                  class="w-24 md:w-32 text-center text-white font-semibold mt-2 break-all"
+                  class="w-24 md:w-32 text-center text-white font-semibold mt-2 break-all md:break-normal"
                 >
                   {{ card2?.title }}
                 </p>
