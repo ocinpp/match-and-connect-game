@@ -197,27 +197,14 @@
               />
             </div>
           </div>
-
-          <!-- Check Match Button - Mobile: hidden (shown in modal), Desktop: absolutely positioned -->
-          <div
-            class="hidden md:flex justify-center mt-4 md:mt-6 lg:absolute lg:-bottom-20 lg:left-0 lg:right-0 lg:ml-[calc(1rem+0.5rem)] lg:px-4 xl:px-6"
-          >
-            <button
-              v-if="areBothSlotsFilled"
-              class="w-full lg:w-auto px-6 py-3 bg-gradient-to-r from-cyber-blue to-neon-purple hover:from-cyber-blue/80 hover:to-neon-purple/80 text-white font-bold text-base md:text-lg rounded-lg transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-glow-primary"
-              @click="handleCheckMatch"
-            >
-              Check Match
-            </button>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- Check Match Modal (Mobile only - Auto-opens when slots filled) -->
+    <!-- Check Match Modal (Auto-opens when slots filled) -->
     <div
       v-if="isCheckMatchModalOpen && areBothSlotsFilled"
-      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 md:hidden"
+      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
       @click="handleCancelCheckMatch"
     >
       <div
