@@ -73,7 +73,7 @@
             </div>
 
             <!-- Cards Display -->
-            <div class="flex items-center justify-center gap-3 md:gap-6">
+            <div class="flex items-start justify-center gap-3 md:gap-6">
               <!-- Card 1 -->
               <div class="flex-shrink-0 flex-grow-0">
                 <div
@@ -93,7 +93,7 @@
               </div>
 
               <!-- Connection Arrow -->
-              <div class="flex flex-col items-center">
+              <div class="flex flex-col items-center my-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="w-12 h-12 text-neon-purple animate-pulse"
