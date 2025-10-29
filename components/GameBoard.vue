@@ -12,106 +12,172 @@
       </p>
     </header>
 
-    <!-- Main Game Area -->
-    <div class="max-w-7xl mx-auto space-y-4 md:space-y-6">
-      <!-- Row 1: Cards -->
-      <div class="card-row">
-        <h2
-          class="text-lg md:text-xl font-semibold text-cyber-blue mb-2 md:mb-3 flex items-center gap-2"
-        >
-          <span
-            class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-cyber-blue/20 flex items-center justify-center text-xs md:text-sm"
-            >1</span
-          >
-          <span class="text-sm md:text-base lg:text-xl"
-            >Available Cards - Row 1</span
-          >
-        </h2>
-        <div class="overflow-x-auto pb-2 md:pb-3">
-          <div class="flex gap-4 min-w-min">
-            <GameCard
-              v-for="card in cardDistribution.row1"
-              :key="card.id"
-              :card="card"
-              :is-disabled="isCardDisabled(card.id)"
-              :is-selected="selectedCard?.id === card.id"
-              @drag-start="handleDragStart"
-              @click="handleCardClick"
-            />
+    <!-- Main Game Area - Horizontal Layout -->
+    <div class="max-w-7xl mx-auto">
+      <!-- Desktop: Side by side layout, Mobile: Stacked -->
+      <div class="flex flex-col lg:flex-row gap-4 md:gap-6">
+        <!-- Left Side: Card Rows -->
+        <div class="flex-1 flex flex-col gap-4 lg:min-w-0">
+          <!-- Row 1: Cards -->
+          <div class="card-row flex gap-2 items-stretch flex-1">
+            <!-- Vertical Row Title -->
+            <div
+              class="flex-shrink-0 flex items-center justify-center bg-cyber-blue/10 rounded-lg px-1"
+            >
+              <h2
+                class="text-sm md:text-base font-semibold text-cyber-blue flex items-center gap-2"
+                style="writing-mode: sideways-lr"
+              >
+                <span
+                  class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-cyber-blue/20 flex items-center justify-center text-xs"
+                  >1</span
+                >
+                <span>Row 1</span>
+              </h2>
+            </div>
+            <!-- Cards Container -->
+            <div class="flex-1 overflow-x-auto scrollbar-hide relative">
+              <div class="flex gap-4 min-w-min h-full pr-8">
+                <GameCard
+                  v-for="card in cardDistribution.row1"
+                  :key="card.id"
+                  :card="card"
+                  :is-disabled="isCardDisabled(card.id)"
+                  :is-selected="selectedCard?.id === card.id"
+                  @drag-start="handleDragStart"
+                  @click="handleCardClick"
+                />
+              </div>
+              <!-- Scroll indicator gradient -->
+              <div
+                class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-dark-bg to-transparent pointer-events-none"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Row 2: Cards -->
+          <div class="card-row flex gap-2 items-stretch flex-1">
+            <!-- Vertical Row Title -->
+            <div
+              class="flex-shrink-0 flex items-center justify-center bg-cyber-blue/10 rounded-lg px-1"
+            >
+              <h2
+                class="text-sm md:text-base font-semibold text-cyber-blue flex items-center gap-2"
+                style="writing-mode: sideways-lr"
+              >
+                <span
+                  class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-cyber-blue/20 flex items-center justify-center text-xs"
+                  >2</span
+                >
+                <span>Row 2</span>
+              </h2>
+            </div>
+            <!-- Cards Container -->
+            <div class="flex-1 overflow-x-auto scrollbar-hide relative">
+              <div class="flex gap-4 min-w-min h-full pr-8">
+                <GameCard
+                  v-for="card in cardDistribution.row2"
+                  :key="card.id"
+                  :card="card"
+                  :is-disabled="isCardDisabled(card.id)"
+                  :is-selected="selectedCard?.id === card.id"
+                  @drag-start="handleDragStart"
+                  @click="handleCardClick"
+                />
+              </div>
+              <!-- Scroll indicator gradient -->
+              <div
+                class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-dark-bg to-transparent pointer-events-none"
+              ></div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Row 2: Cards -->
-      <div class="card-row">
-        <h2
-          class="text-lg md:text-xl font-semibold text-cyber-blue mb-2 md:mb-3 flex items-center gap-2"
+        <!-- Right Side: Drop Slots (Desktop) / Bottom (Mobile) -->
+        <div
+          class="lg:w-auto flex-shrink-0 mt-6 lg:mt-0 pt-4 lg:pt-0 border-t-2 lg:border-t-0 lg:border-l-2 border-cyber-blue/30 lg:pl-4 xl:pl-6 lg:relative"
         >
-          <span
-            class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-cyber-blue/20 flex items-center justify-center text-xs md:text-sm"
-            >2</span
+          <!-- Mobile: Horizontal title -->
+          <h2
+            class="lg:hidden text-lg md:text-xl font-semibold text-neon-purple mb-4 flex items-center gap-2"
           >
-          <span class="text-sm md:text-base lg:text-xl"
-            >Available Cards - Row 2</span
-          >
-        </h2>
-        <div class="overflow-x-auto pb-2 md:pb-3">
-          <div class="flex gap-4 min-w-min">
-            <GameCard
-              v-for="card in cardDistribution.row2"
-              :key="card.id"
-              :card="card"
-              :is-disabled="isCardDisabled(card.id)"
-              :is-selected="selectedCard?.id === card.id"
-              @drag-start="handleDragStart"
-              @click="handleCardClick"
-            />
+            <span
+              class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-neon-purple/20 flex items-center justify-center text-xs md:text-sm"
+              >3</span
+            >
+            <span class="text-sm md:text-base lg:text-xl">Match Slots</span>
+          </h2>
+
+          <!-- Desktop: Vertical layout aligned with rows -->
+          <div class="flex lg:flex-col gap-4 justify-center lg:justify-start">
+            <!-- Slot 1 - Aligns with Row 1 -->
+            <div class="flex gap-2 items-stretch flex-1">
+              <!-- Vertical Slot Title (Desktop only) -->
+              <div
+                class="hidden lg:flex flex-shrink-0 items-center justify-center bg-neon-purple/10 rounded-lg px-1"
+              >
+                <h2
+                  class="text-sm md:text-base font-semibold text-neon-purple flex items-center gap-2"
+                  style="writing-mode: sideways-lr"
+                >
+                  <span
+                    class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-neon-purple/20 flex items-center justify-center text-xs"
+                    >1</span
+                  >
+                  <span>Slot 1</span>
+                </h2>
+              </div>
+              <DropSlot
+                :slot-index="1"
+                :card="slot1"
+                :should-shake="shouldShakeSlots"
+                @card-dropped="handleCardDropped"
+                @card-removed="handleCardRemoved"
+                @slot-clicked="handleSlotClick"
+              />
+            </div>
+
+            <!-- Slot 2 - Aligns with Row 2 -->
+            <div class="flex gap-2 items-stretch flex-1">
+              <!-- Vertical Slot Title (Desktop only) -->
+              <div
+                class="hidden lg:flex flex-shrink-0 items-center justify-center bg-neon-purple/10 rounded-lg px-1"
+              >
+                <h2
+                  class="text-sm md:text-base font-semibold text-neon-purple flex items-center gap-2"
+                  style="writing-mode: sideways-lr"
+                >
+                  <span
+                    class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-neon-purple/20 flex items-center justify-center text-xs"
+                    >2</span
+                  >
+                  <span>Slot 2</span>
+                </h2>
+              </div>
+              <DropSlot
+                :slot-index="2"
+                :card="slot2"
+                :should-shake="shouldShakeSlots"
+                @card-dropped="handleCardDropped"
+                @card-removed="handleCardRemoved"
+                @slot-clicked="handleSlotClick"
+              />
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Row 3: Drop Slots -->
-      <div
-        class="drop-slots-row mt-6 md:mt-8 pt-4 md:pt-6 border-t-2 border-cyber-blue/30"
-      >
-        <h2
-          class="text-lg md:text-xl font-semibold text-neon-purple mb-2 md:mb-3 flex items-center gap-2"
-        >
-          <span
-            class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-neon-purple/20 flex items-center justify-center text-xs md:text-sm"
-            >3</span
+          <!-- Check Match Button - Mobile: below slots, Desktop: absolutely positioned -->
+          <div
+            class="flex justify-center mt-4 md:mt-6 lg:absolute lg:-bottom-20 lg:left-0 lg:right-0 lg:px-4 xl:px-6"
           >
-          <span class="text-sm md:text-base lg:text-xl">Match Slots</span>
-        </h2>
-        <div class="flex gap-4 md:gap-6 lg:gap-8 justify-center">
-          <DropSlot
-            :slot-index="1"
-            :card="slot1"
-            :should-shake="shouldShakeSlots"
-            @card-dropped="handleCardDropped"
-            @card-removed="handleCardRemoved"
-            @slot-clicked="handleSlotClick"
-          />
-          <DropSlot
-            :slot-index="2"
-            :card="slot2"
-            :should-shake="shouldShakeSlots"
-            @card-dropped="handleCardDropped"
-            @card-removed="handleCardRemoved"
-            @slot-clicked="handleSlotClick"
-          />
-        </div>
-
-        <!-- Check Match Button -->
-        <div class="text-center mt-4 md:mt-6">
-          <button
-            v-if="areBothSlotsFilled"
-            class="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-cyber-blue to-neon-purple hover:from-cyber-blue/80 hover:to-neon-purple/80 text-white font-bold text-base md:text-lg rounded-lg transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
-            style="box-shadow: 0 0 20px rgba(0, 240, 255, 0.5)"
-            @click="handleCheckMatch"
-          >
-            Check Match
-          </button>
+            <button
+              v-if="areBothSlotsFilled"
+              class="w-full lg:w-auto px-6 py-3 bg-gradient-to-r from-cyber-blue to-neon-purple hover:from-cyber-blue/80 hover:to-neon-purple/80 text-white font-bold text-base md:text-lg rounded-lg transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
+              style="box-shadow: 0 0 20px rgba(0, 240, 255, 0.5)"
+              @click="handleCheckMatch"
+            >
+              Check Match
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -246,7 +312,17 @@ const handleModalClose = () => {
   @apply relative;
 }
 
-/* Custom scrollbar for card rows */
+/* Hide scrollbar but keep scrolling functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Custom scrollbar for card rows (fallback if not using scrollbar-hide) */
 .overflow-x-auto::-webkit-scrollbar {
   height: 8px;
 }
