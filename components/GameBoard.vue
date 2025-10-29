@@ -186,8 +186,8 @@
     <MatchModal
       :is-open="isModalOpen"
       :relationship="currentRelationship"
-      :card1="slot1"
-      :card2="slot2"
+      :card1="orderedCard1"
+      :card2="orderedCard2"
       @close="handleModalClose"
     />
 
@@ -201,7 +201,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick } from "vue";
+import { ref, nextTick, computed } from "vue";
 import { useGameState } from "~/composables/useGameState";
 import type { Card, Relationship } from "~/composables/useGameState";
 
@@ -224,6 +224,37 @@ const currentRelationship = ref<Relationship | null>(null);
 const shouldShakeSlots = ref(false);
 const toastMessage = ref("");
 const toastRef = ref<InstanceType<typeof ToastNotification> | null>(null);
+
+// Computed properties to get cards in the correct order based on relationship
+const orderedCard1 = computed(() => {
+  if (!currentRelationship.value || !slot1.value || !slot2.value) {
+    return slot1.value;
+  }
+
+  const cardIds = currentRelationship.value.cardIds;
+  // Return the card that matches the first ID in the relationship
+  if (slot1.value.id === cardIds[0]) {
+    return slot1.value;
+  } else if (slot2.value.id === cardIds[0]) {
+    return slot2.value;
+  }
+  return slot1.value;
+});
+
+const orderedCard2 = computed(() => {
+  if (!currentRelationship.value || !slot1.value || !slot2.value) {
+    return slot2.value;
+  }
+
+  const cardIds = currentRelationship.value.cardIds;
+  // Return the card that matches the second ID in the relationship
+  if (slot1.value.id === cardIds[1]) {
+    return slot1.value;
+  } else if (slot2.value.id === cardIds[1]) {
+    return slot2.value;
+  }
+  return slot2.value;
+});
 
 // Drag and Drop Handlers
 const handleDragStart = (card: Card) => {
