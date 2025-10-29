@@ -167,7 +167,7 @@
 
           <!-- Check Match Button - Mobile: below slots, Desktop: absolutely positioned -->
           <div
-            class="flex justify-center mt-4 md:mt-6 lg:absolute lg:-bottom-20 lg:left-0 lg:right-0 lg:px-4 xl:px-6"
+            class="flex justify-center mt-4 md:mt-6 lg:absolute lg:-bottom-20 lg:left-0 lg:right-0 lg:ml-[calc(1rem+0.5rem)] lg:px-4 xl:px-6"
           >
             <button
               v-if="areBothSlotsFilled"
