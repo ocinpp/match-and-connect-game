@@ -36,21 +36,24 @@
               </h2>
             </div>
             <!-- Cards Container -->
-            <div class="flex-1 overflow-x-auto scrollbar-hide relative">
-              <div class="flex gap-4 min-w-min h-full pr-8">
-                <GameCard
-                  v-for="card in cardDistribution.row1"
-                  :key="card.id"
-                  :card="card"
-                  :is-disabled="isCardDisabled(card.id)"
-                  :is-selected="selectedCard?.id === card.id"
-                  @drag-start="handleDragStart"
-                  @click="handleCardClick"
-                />
+            <div class="flex-1 relative overflow-hidden">
+              <div class="overflow-x-auto scrollbar-hide h-full">
+                <div class="flex gap-4 min-w-min h-full pr-8">
+                  <GameCard
+                    v-for="card in cardDistribution.row1"
+                    :key="card.id"
+                    :card="card"
+                    :is-disabled="isCardDisabled(card.id)"
+                    :is-selected="selectedCard?.id === card.id"
+                    @drag-start="handleDragStart"
+                    @click="handleCardClick"
+                  />
+                </div>
               </div>
-              <!-- Scroll indicator gradient -->
+              <!-- Fixed gradient overlay - positioned absolutely, won't scroll -->
               <div
-                class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-dark-bg to-transparent pointer-events-none"
+                class="scroll-fade-gradient"
+                style="pointer-events: none"
               ></div>
             </div>
           </div>
@@ -73,21 +76,24 @@
               </h2>
             </div>
             <!-- Cards Container -->
-            <div class="flex-1 overflow-x-auto scrollbar-hide relative">
-              <div class="flex gap-4 min-w-min h-full pr-8">
-                <GameCard
-                  v-for="card in cardDistribution.row2"
-                  :key="card.id"
-                  :card="card"
-                  :is-disabled="isCardDisabled(card.id)"
-                  :is-selected="selectedCard?.id === card.id"
-                  @drag-start="handleDragStart"
-                  @click="handleCardClick"
-                />
+            <div class="flex-1 relative overflow-hidden">
+              <div class="overflow-x-auto scrollbar-hide h-full">
+                <div class="flex gap-4 min-w-min h-full pr-8">
+                  <GameCard
+                    v-for="card in cardDistribution.row2"
+                    :key="card.id"
+                    :card="card"
+                    :is-disabled="isCardDisabled(card.id)"
+                    :is-selected="selectedCard?.id === card.id"
+                    @drag-start="handleDragStart"
+                    @click="handleCardClick"
+                  />
+                </div>
               </div>
-              <!-- Scroll indicator gradient -->
+              <!-- Fixed gradient overlay - positioned absolutely, won't scroll -->
               <div
-                class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-dark-bg to-transparent pointer-events-none"
+                class="scroll-fade-gradient"
+                style="pointer-events: none"
               ></div>
             </div>
           </div>
@@ -421,6 +427,23 @@ const handleModalClose = () => {
 <style scoped>
 .card-row {
   @apply relative;
+}
+
+/* Fixed gradient overlay - separate element that doesn't scroll */
+.scroll-fade-gradient {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 6rem; /* 96px - wider gradient */
+  background: linear-gradient(
+    to left,
+    rgb(10, 14, 39) 0%,
+    rgba(10, 14, 39, 0.8) 30%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 10;
 }
 
 /* Hide scrollbar but keep scrolling functionality */
