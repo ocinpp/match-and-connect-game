@@ -5,7 +5,7 @@
       <h1
         class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 bg-gradient-to-r from-cyber-blue via-neon-purple to-matrix-green bg-clip-text text-transparent"
       >
-        Cyber Match
+        Match and Connect
       </h1>
       <p class="text-gray-400 text-sm md:text-base lg:text-lg">
         Drag cards to slots to discover their connections

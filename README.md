@@ -1,4 +1,4 @@
-# Cyber Match - Card Connection Game
+# Match and Connect - Card Connection Game
 
 A stylish card matching game built with Nuxt 4 and Tailwind CSS, featuring cyber/futuristic themed cards and interactive drag-and-drop gameplay.
 
