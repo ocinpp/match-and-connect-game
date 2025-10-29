@@ -3,7 +3,7 @@
     <!-- Header -->
     <header class="text-center mb-4 md:mb-6">
       <h1
-        class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 bg-gradient-to-r from-cyber-blue via-neon-purple to-matrix-green bg-clip-text text-transparent"
+        class="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 bg-gradient-to-r from-cyber-blue via-neon-purple to-matrix-green bg-clip-text text-transparent"
       >
         Match and Connect
       </h1>
@@ -95,7 +95,7 @@
 
         <!-- Right Side: Drop Slots (Desktop) / Bottom (Mobile) -->
         <div
-          class="lg:w-auto flex-shrink-0 mt-6 lg:mt-0 pt-4 lg:pt-0 border-t-2 lg:border-t-0 lg:border-l-2 border-cyber-blue/30 lg:pl-4 xl:pl-6 lg:relative"
+          class="lg:w-auto flex-shrink-0 md:mt-6 lg:mt-0 pt-4 lg:pt-0 border-t-2 lg:border-t-0 lg:border-l-2 border-cyber-blue/30 lg:pl-4 xl:pl-6 lg:relative"
         >
           <!-- Mobile: Horizontal layout with title on left -->
           <div class="lg:hidden flex gap-2 items-stretch">
@@ -115,9 +115,9 @@
               </h2>
             </div>
             <!-- Slots container - take remaining space -->
-            <div class="flex gap-3 sm:gap-4 flex-1">
+            <div class="flex justify-start gap-4 sm:gap-4 flex-1 pr-0">
               <!-- Slot 1 -->
-              <div class="flex-1">
+              <div>
                 <DropSlot
                   :slot-index="1"
                   :card="slot1"
@@ -128,7 +128,7 @@
                 />
               </div>
               <!-- Slot 2 -->
-              <div class="flex-1">
+              <div>
                 <DropSlot
                   :slot-index="2"
                   :card="slot2"

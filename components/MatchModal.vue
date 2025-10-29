@@ -73,11 +73,11 @@
             </div>
 
             <!-- Cards Display -->
-            <div class="flex items-center justify-center gap-6">
+            <div class="flex items-center justify-center gap-3 md:gap-6">
               <!-- Card 1 -->
-              <div class="flex-shrink-0">
+              <div class="flex-shrink-0 flex-grow-0">
                 <div
-                  class="w-32 h-48 rounded-lg overflow-hidden border-2 border-cyber-blue"
+                  class="w-24 h-full md:w-32 md:h-48 rounded-lg overflow-hidden border-2 border-cyber-blue"
                 >
                   <img
                     :src="card1?.imageUrl"
@@ -85,7 +85,9 @@
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <p class="text-center text-white font-semibold mt-2">
+                <p
+                  class="w-24 md:w-32 text-center text-white font-semibold mt-2 break-all"
+                >
                   {{ card1?.title }}
                 </p>
               </div>
@@ -106,15 +108,17 @@
                     d="M13 5l7 7-7 7M5 5l7 7-7 7"
                   />
                 </svg>
-                <p class="text-neon-purple text-sm font-semibold mt-2">
+                <p
+                  class="text-center text-neon-purple text-sm font-semibold mt-2"
+                >
                   {{ relationship?.type }}
                 </p>
               </div>
 
               <!-- Card 2 -->
-              <div class="flex-shrink-0">
+              <div class="flex-shrink-0 flex-grow-0">
                 <div
-                  class="w-32 h-48 rounded-lg overflow-hidden border-2 border-cyber-blue"
+                  class="w-24 h-full md:w-32 md:h-48 rounded-lg overflow-hidden border-2 border-cyber-blue"
                 >
                   <img
                     :src="card2?.imageUrl"
@@ -122,7 +126,9 @@
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <p class="text-center text-white font-semibold mt-2">
+                <p
+                  class="w-24 md:w-32 text-center text-white font-semibold mt-2 break-all"
+                >
                   {{ card2?.title }}
                 </p>
               </div>
