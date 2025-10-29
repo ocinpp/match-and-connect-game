@@ -3,9 +3,7 @@
     <Transition name="toast">
       <div
         v-if="isVisible"
-        class="fixed top-8 left-1/2 transform -translate-x-1/2 z-50
-               bg-red-500/90 backdrop-blur-sm text-white px-6 py-4 rounded-lg
-               shadow-2xl border-2 border-red-400 max-w-md"
+        class="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-red-500/90 backdrop-blur-sm text-white px-4 py-4 rounded-lg shadow-2xl border-2 border-red-400 w-[calc(100%-2rem)] md:max-w-md"
         style="box-shadow: 0 0 30px rgba(239, 68, 68, 0.5)"
       >
         <div class="flex items-center gap-3">
@@ -31,50 +29,53 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch } from "vue";
 
 interface Props {
-  message: string
-  duration?: number
+  message: string;
+  duration?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   duration: 3000,
-})
+});
 
-const isVisible = ref(false)
-let timeoutId: NodeJS.Timeout | null = null
+const isVisible = ref(false);
+let timeoutId: NodeJS.Timeout | null = null;
 
 const show = () => {
-  isVisible.value = true
-  
+  isVisible.value = true;
+
   if (timeoutId) {
-    clearTimeout(timeoutId)
+    clearTimeout(timeoutId);
   }
-  
+
   timeoutId = setTimeout(() => {
-    isVisible.value = false
-  }, props.duration)
-}
+    isVisible.value = false;
+  }, props.duration);
+};
 
 const hide = () => {
-  isVisible.value = false
+  isVisible.value = false;
   if (timeoutId) {
-    clearTimeout(timeoutId)
+    clearTimeout(timeoutId);
   }
-}
+};
 
 // Watch for message changes to auto-show
-watch(() => props.message, (newMessage) => {
-  if (newMessage) {
-    show()
+watch(
+  () => props.message,
+  (newMessage) => {
+    if (newMessage) {
+      show();
+    }
   }
-})
+);
 
 defineExpose({
   show,
   hide,
-})
+});
 </script>
 
 <style scoped>
@@ -93,4 +94,3 @@ defineExpose({
   transform: translate(-50%, -20px);
 }
 </style>
-
