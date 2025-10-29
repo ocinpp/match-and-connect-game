@@ -19,7 +19,7 @@
           >
             <div class="flex items-start justify-between">
               <div class="flex-1">
-                <div class="flex items-center gap-2 mb-2">
+                <div class="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="w-8 h-8 text-matrix-green"
@@ -38,7 +38,7 @@
                     Match Found!
                   </h2>
                 </div>
-                <p class="text-cyber-blue text-sm">{{ relationship?.type }}</p>
+                <!-- <p class="text-cyber-blue text-sm">{{ relationship?.type }}</p> -->
               </div>
 
               <button
