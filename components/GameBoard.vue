@@ -198,9 +198,9 @@
             </div>
           </div>
 
-          <!-- Check Match Button - Mobile: below slots, Desktop: absolutely positioned -->
+          <!-- Check Match Button - Mobile: hidden (shown in modal), Desktop: absolutely positioned -->
           <div
-            class="flex justify-center mt-4 md:mt-6 lg:absolute lg:-bottom-20 lg:left-0 lg:right-0 lg:ml-[calc(1rem+0.5rem)] lg:px-4 xl:px-6"
+            class="hidden md:flex justify-center mt-4 md:mt-6 lg:absolute lg:-bottom-20 lg:left-0 lg:right-0 lg:ml-[calc(1rem+0.5rem)] lg:px-4 xl:px-6"
           >
             <button
               v-if="areBothSlotsFilled"
@@ -210,6 +210,39 @@
               Check Match
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Check Match Modal (Mobile only - Auto-opens when slots filled) -->
+    <div
+      v-if="isCheckMatchModalOpen && areBothSlotsFilled"
+      class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 md:hidden"
+      @click="handleCancelCheckMatch"
+    >
+      <div
+        class="bg-dark-bg border-2 border-cyber-blue rounded-lg p-6 max-w-sm mx-4"
+        @click.stop
+      >
+        <h2 class="text-2xl font-bold text-white mb-4 text-center">
+          Check Match?
+        </h2>
+        <p class="text-gray-300 text-center mb-6">
+          Are you ready to check if these cards match?
+        </p>
+        <div class="flex gap-3">
+          <button
+            class="flex-1 px-4 py-3 bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-lg transition-all duration-200"
+            @click="handleCancelCheckMatch"
+          >
+            Cancel
+          </button>
+          <button
+            class="flex-1 px-4 py-3 bg-gradient-to-r from-cyber-blue to-neon-purple hover:from-cyber-blue/80 hover:to-neon-purple/80 text-white font-bold rounded-lg transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-glow-primary"
+            @click="handleCheckMatchFromModal"
+          >
+            Check
+          </button>
         </div>
       </div>
     </div>
@@ -233,7 +266,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, computed } from "vue";
+import { ref, nextTick, computed, watch } from "vue";
 import { useGameState } from "~/composables/useGameState";
 import type { Card, Relationship } from "~/composables/useGameState";
 
@@ -250,12 +283,13 @@ const {
 
 // UI State
 const selectedCard = ref<Card | null>(null);
-const targetSlot = ref<number | null>(null);
 const isModalOpen = ref(false);
+const isCheckMatchModalOpen = ref(false);
 const currentRelationship = ref<Relationship | null>(null);
 const shouldShakeSlots = ref(false);
 const toastMessage = ref("");
 const toastRef = ref<InstanceType<typeof ToastNotification> | null>(null);
+const userCancelledCheckMatch = ref(false);
 
 // Computed properties to get cards in the correct order based on relationship
 const orderedCard1 = computed(() => {
@@ -287,6 +321,17 @@ const orderedCard2 = computed(() => {
   }
   return slot2.value;
 });
+
+// Watch for both slots filled - auto-open modal on mobile
+watch(
+  () => areBothSlotsFilled.value,
+  (newVal) => {
+    if (newVal && !userCancelledCheckMatch.value) {
+      // Auto-open modal on mobile when both slots are filled
+      isCheckMatchModalOpen.value = true;
+    }
+  }
+);
 
 // Drag and Drop Handlers
 const handleDragStart = (card: Card) => {
@@ -337,6 +382,10 @@ const handleCardDropped = (card: Card, slotIndex: number) => {
 // Card Removed Handler
 const handleCardRemoved = (slotIndex: number) => {
   removeCardFromSlot(slotIndex);
+  // Reset the cancel flag when a card is removed
+  userCancelledCheckMatch.value = false;
+  // Close modal if it's open
+  isCheckMatchModalOpen.value = false;
 };
 
 // Check Match Handler
@@ -360,6 +409,18 @@ const handleCheckMatch = async () => {
       shouldShakeSlots.value = false;
     }, 500);
   }
+};
+
+// Cancel Check Match Handler (Mobile)
+const handleCancelCheckMatch = () => {
+  isCheckMatchModalOpen.value = false;
+  userCancelledCheckMatch.value = true;
+};
+
+// Check Match Handler from Modal (Mobile)
+const handleCheckMatchFromModal = async () => {
+  isCheckMatchModalOpen.value = false;
+  await handleCheckMatch();
 };
 
 // Modal Close Handler
