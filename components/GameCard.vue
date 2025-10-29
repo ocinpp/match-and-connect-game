@@ -6,8 +6,9 @@
       'border-2 transition-all duration-300',
       isDisabled
         ? 'opacity-40 cursor-not-allowed border-gray-600'
+        : isSelected
+        ? 'border-neon-purple ring-neon-purple'
         : 'border-cyber-blue hover:border-neon-purple',
-      isSelected ? 'ring-4 ring-neon-purple' : '',
       isDragging ? 'opacity-50 scale-95' : '',
     ]"
     :draggable="!isDisabled"
