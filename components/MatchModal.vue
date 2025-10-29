@@ -8,16 +8,16 @@
       >
         <!-- Backdrop -->
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-        
+
         <!-- Modal Content -->
         <div
-          class="relative bg-card-bg border-2 border-matrix-green rounded-xl 
-                 max-w-2xl w-full max-h-[90vh] overflow-y-auto
-                 shadow-2xl animate-match-pulse"
-          style="box-shadow: 0 0 40px rgba(0, 255, 65, 0.4)"
+          class="relative bg-card-bg border-2 border-matrix-green rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-match-pulse"
+          style="box-shadow: 0 0 40px rgba(255, 214, 10, 0.4)"
         >
           <!-- Header -->
-          <div class="sticky top-0 bg-card-bg border-b border-matrix-green/30 p-6 z-10">
+          <div
+            class="sticky top-0 bg-card-bg border-b border-matrix-green/30 p-6 z-10"
+          >
             <div class="flex items-start justify-between">
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-2">
@@ -35,14 +35,15 @@
                       d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <h2 class="text-3xl font-bold text-matrix-green">Match Found!</h2>
+                  <h2 class="text-3xl font-bold text-matrix-green">
+                    Match Found!
+                  </h2>
                 </div>
                 <p class="text-cyber-blue text-sm">{{ relationship?.type }}</p>
               </div>
-              
+
               <button
-                class="ml-4 w-10 h-10 rounded-full bg-red-500/20 hover:bg-red-500/40 
-                       flex items-center justify-center transition-colors"
+                class="ml-4 w-10 h-10 rounded-full bg-red-500/20 hover:bg-red-500/40 flex items-center justify-center transition-colors"
                 @click="close"
               >
                 <svg
@@ -62,7 +63,7 @@
               </button>
             </div>
           </div>
-          
+
           <!-- Body -->
           <div class="p-6 space-y-6">
             <!-- Relationship Title -->
@@ -71,21 +72,25 @@
                 {{ relationship?.title }}
               </h3>
             </div>
-            
+
             <!-- Cards Display -->
             <div class="flex items-center justify-center gap-6">
               <!-- Card 1 -->
               <div class="flex-shrink-0">
-                <div class="w-32 h-48 rounded-lg overflow-hidden border-2 border-cyber-blue">
+                <div
+                  class="w-32 h-48 rounded-lg overflow-hidden border-2 border-cyber-blue"
+                >
                   <img
                     :src="card1?.imageUrl"
                     :alt="card1?.title"
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <p class="text-center text-white font-semibold mt-2">{{ card1?.title }}</p>
+                <p class="text-center text-white font-semibold mt-2">
+                  {{ card1?.title }}
+                </p>
               </div>
-              
+
               <!-- Connection Arrow -->
               <div class="flex flex-col items-center">
                 <svg
@@ -106,35 +111,43 @@
                   {{ relationship?.type }}
                 </p>
               </div>
-              
+
               <!-- Card 2 -->
               <div class="flex-shrink-0">
-                <div class="w-32 h-48 rounded-lg overflow-hidden border-2 border-cyber-blue">
+                <div
+                  class="w-32 h-48 rounded-lg overflow-hidden border-2 border-cyber-blue"
+                >
                   <img
                     :src="card2?.imageUrl"
                     :alt="card2?.title"
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <p class="text-center text-white font-semibold mt-2">{{ card2?.title }}</p>
+                <p class="text-center text-white font-semibold mt-2">
+                  {{ card2?.title }}
+                </p>
               </div>
             </div>
-            
+
             <!-- Description -->
-            <div class="bg-dark-bg/50 rounded-lg p-6 border border-cyber-blue/30">
-              <h4 class="text-cyber-blue font-semibold mb-3 text-lg">Relationship Details</h4>
+            <div
+              class="bg-dark-bg/50 rounded-lg p-6 border border-cyber-blue/30"
+            >
+              <h4 class="text-cyber-blue font-semibold mb-3 text-lg">
+                Relationship Details
+              </h4>
               <p class="text-gray-300 leading-relaxed">
                 {{ relationship?.description }}
               </p>
             </div>
           </div>
-          
+
           <!-- Footer -->
-          <div class="sticky bottom-0 bg-card-bg border-t border-matrix-green/30 p-6">
+          <div
+            class="sticky bottom-0 bg-card-bg border-t border-matrix-green/30 p-6"
+          >
             <button
-              class="w-full py-3 px-6 bg-matrix-green hover:bg-matrix-green/80 
-                     text-dark-bg font-bold rounded-lg transition-colors
-                     transform hover:scale-105 active:scale-95"
+              class="w-full py-3 px-6 bg-matrix-green hover:bg-matrix-green/80 text-dark-bg font-bold rounded-lg transition-colors transform hover:scale-105 active:scale-95"
               @click="close"
             >
               Continue Exploring
@@ -147,39 +160,39 @@
 </template>
 
 <script setup lang="ts">
-import type { Card, Relationship } from '~/composables/useGameState'
+import type { Card, Relationship } from "~/composables/useGameState";
 
 interface Props {
-  isOpen: boolean
-  relationship: Relationship | null
-  card1: Card | null
-  card2: Card | null
+  isOpen: boolean;
+  relationship: Relationship | null;
+  card1: Card | null;
+  card2: Card | null;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
 const emit = defineEmits<{
-  close: []
-}>()
+  close: [];
+}>();
 
 const close = () => {
-  emit('close')
-}
+  emit("close");
+};
 
 // Close on Escape key
 onMounted(() => {
   const handleEscape = (event: KeyboardEvent) => {
-    if (event.key === 'Escape' && props.isOpen) {
-      close()
+    if (event.key === "Escape" && props.isOpen) {
+      close();
     }
-  }
-  
-  window.addEventListener('keydown', handleEscape)
-  
+  };
+
+  window.addEventListener("keydown", handleEscape);
+
   onUnmounted(() => {
-    window.removeEventListener('keydown', handleEscape)
-  })
-})
+    window.removeEventListener("keydown", handleEscape);
+  });
+});
 </script>
 
 <style scoped>
@@ -203,4 +216,3 @@ onMounted(() => {
   transform: scale(0.9);
 }
 </style>
-

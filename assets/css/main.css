@@ -4,10 +4,10 @@
 
 @layer base {
   :root {
-    /* Cyber/Futuristic Color Palette */
-    --color-cyber-blue: #00f0ff;
-    --color-neon-purple: #b026ff;
-    --color-matrix-green: #00ff41;
+    /* Cyberpunk Neon Color Palette */
+    --color-cyber-blue: #00d9ff;
+    --color-neon-purple: #ff006e;
+    --color-matrix-green: #ffd60a;
     --color-dark-bg: #0a0e27;
     --color-card-bg: #1a1f3a;
     --color-slot-bg: #151a33;

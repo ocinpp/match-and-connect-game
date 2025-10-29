@@ -172,7 +172,7 @@
             <button
               v-if="areBothSlotsFilled"
               class="w-full lg:w-auto px-6 py-3 bg-gradient-to-r from-cyber-blue to-neon-purple hover:from-cyber-blue/80 hover:to-neon-purple/80 text-white font-bold text-base md:text-lg rounded-lg transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg"
-              style="box-shadow: 0 0 20px rgba(0, 240, 255, 0.5)"
+              style="box-shadow: 0 0 20px rgba(0, 217, 255, 0.5)"
               @click="handleCheckMatch"
             >
               Check Match
