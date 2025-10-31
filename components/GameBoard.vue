@@ -1,5 +1,8 @@
 <template>
-  <div class="game-board min-h-screen bg-dark-bg text-white p-4 md:p-6 lg:p-8">
+  <div
+    class="game-board min-h-dvh bg-dark-bg text-white p-4 md:p-6 lg:p-8"
+    @contextmenu="handleContextMenu"
+  >
     <!-- Header -->
     <header class="text-center mb-4 md:mb-6">
       <h1
@@ -47,6 +50,9 @@
                     :is-selected="selectedCard?.id === card.id"
                     @drag-start="handleDragStart"
                     @click="handleCardClick"
+                    @touch-drag-start="handleCardTouchDragStart"
+                    @touch-drag-move="handleCardTouchDragMove"
+                    @touch-drag-end="handleCardTouchDragEnd"
                   />
                 </div>
               </div>
@@ -87,6 +93,9 @@
                     :is-selected="selectedCard?.id === card.id"
                     @drag-start="handleDragStart"
                     @click="handleCardClick"
+                    @touch-drag-start="handleCardTouchDragStart"
+                    @touch-drag-move="handleCardTouchDragMove"
+                    @touch-drag-end="handleCardTouchDragEnd"
                   />
                 </div>
               </div>
@@ -123,22 +132,26 @@
             <!-- Slots container - take remaining space -->
             <div class="flex justify-start gap-4 sm:gap-4 flex-1 pr-0">
               <!-- Slot 1 -->
-              <div>
+              <div ref="slot1Ref">
                 <DropSlot
                   :slot-index="1"
                   :card="slot1"
                   :should-shake="shouldShakeSlots"
+                  :touch-position="touchPosition"
+                  :is-drag-mode-active="!!activeDragCard"
                   @card-dropped="handleCardDropped"
                   @card-removed="handleCardRemoved"
                   @slot-clicked="handleSlotClick"
                 />
               </div>
               <!-- Slot 2 -->
-              <div>
+              <div ref="slot2Ref">
                 <DropSlot
                   :slot-index="2"
                   :card="slot2"
                   :should-shake="shouldShakeSlots"
+                  :touch-position="touchPosition"
+                  :is-drag-mode-active="!!activeDragCard"
                   @card-dropped="handleCardDropped"
                   @card-removed="handleCardRemoved"
                   @slot-clicked="handleSlotClick"
@@ -255,6 +268,48 @@
       ref="toastRef"
       :message="toastMessage"
     />
+
+    <!-- Mobile Drag Ghost - Floating card that follows finger -->
+    <Transition name="drag-ghost">
+      <div
+        v-if="showDragGhost && activeDragCard && touchPosition"
+        class="drag-ghost-card"
+        :style="{
+          left: `${touchPosition.x}px`,
+          top: `${touchPosition.y}px`,
+        }"
+      >
+        <!-- Card Image -->
+        <div class="absolute inset-0">
+          <img
+            :src="activeDragCard.imageUrl"
+            :alt="activeDragCard.title"
+            class="w-full h-full object-cover rounded-lg"
+          />
+          <!-- Gradient Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent rounded-lg"
+          ></div>
+        </div>
+
+        <!-- Card Title -->
+        <div class="absolute bottom-0 left-0 right-0 p-2 md:p-4">
+          <h3
+            class="text-white font-bold text-sm md:text-base lg:text-lg text-center drop-shadow-lg"
+          >
+            {{ activeDragCard.title }}
+          </h3>
+        </div>
+
+        <!-- Glow Effect -->
+        <div
+          class="absolute inset-0 pointer-events-none rounded-lg shadow-glow-card"
+        ></div>
+      </div>
+    </Transition>
+
+    <!-- Onboarding Modal -->
+    <OnboardingModal :show="showOnboarding" @close="closeOnboarding" />
   </div>
 </template>
 
@@ -262,6 +317,9 @@
 import { ref, nextTick, computed, watch } from "vue";
 import { useGameState } from "~/composables/useGameState";
 import type { Card, Relationship } from "~/composables/useGameState";
+import { haptics } from "~/utils/haptics";
+import { GAME_CONFIG } from "~/config/gameConfig";
+import { useOnboarding } from "~/composables/useOnboarding";
 
 const {
   slot1,
@@ -274,6 +332,9 @@ const {
   checkMatch,
 } = useGameState();
 
+// Onboarding
+const { showOnboarding, closeOnboarding } = useOnboarding();
+
 // UI State
 const selectedCard = ref<Card | null>(null);
 const isModalOpen = ref(false);
@@ -283,6 +344,19 @@ const shouldShakeSlots = ref(false);
 const toastMessage = ref("");
 const toastRef = ref<InstanceType<typeof ToastNotification> | null>(null);
 const userCancelledCheckMatch = ref(false);
+
+// ===== NEW STATE - MOBILE TOUCH DRAG =====
+const activeDragCard = ref<Card | null>(null);
+const touchPosition = ref<{ x: number; y: number } | null>(null);
+const slot1Ref = ref<HTMLElement | null>(null);
+const slot2Ref = ref<HTMLElement | null>(null);
+const showDragGhost = ref(false); // Show floating ghost card
+
+// Detect mobile device
+const isMobile = computed(() => {
+  if (typeof window === "undefined") return false;
+  return window.innerWidth < GAME_CONFIG.MOBILE_BREAKPOINT;
+});
 
 // Computed properties to get cards in the correct order based on relationship
 const orderedCard1 = computed(() => {
@@ -381,6 +455,106 @@ const handleCardRemoved = (slotIndex: number) => {
   isCheckMatchModalOpen.value = false;
 };
 
+// ===== NEW MOBILE TOUCH DRAG HANDLERS =====
+
+/**
+ * Helper to check if touch coordinates are within element bounds
+ */
+const isTouchInElement = (
+  touchX: number,
+  touchY: number,
+  element: HTMLElement | null
+): boolean => {
+  if (!element) return false;
+
+  const rect = element.getBoundingClientRect();
+  return (
+    touchX >= rect.left &&
+    touchX <= rect.right &&
+    touchY >= rect.top &&
+    touchY <= rect.bottom
+  );
+};
+
+/**
+ * Handle touch drag start from GameCard
+ */
+const handleCardTouchDragStart = (
+  card: Card,
+  touchX: number,
+  touchY: number
+) => {
+  activeDragCard.value = card;
+  touchPosition.value = { x: touchX, y: touchY };
+  showDragGhost.value = true;
+};
+
+/**
+ * Handle touch drag move from GameCard
+ */
+const handleCardTouchDragMove = (touchX: number, touchY: number) => {
+  if (!activeDragCard.value) return;
+
+  touchPosition.value = { x: touchX, y: touchY };
+
+  // Check if over a drop zone and trigger haptic
+  const overSlot1 = isTouchInElement(touchX, touchY, slot1Ref.value);
+  const overSlot2 = isTouchInElement(touchX, touchY, slot2Ref.value);
+
+  // Trigger light haptic when entering a drop zone
+  // (We'll need to track previous state to avoid repeated haptics)
+  if (overSlot1 || overSlot2) {
+    // TODO: Add debouncing to prevent repeated haptics
+  }
+};
+
+/**
+ * Handle touch drag end from GameCard
+ */
+const handleCardTouchDragEnd = (touchX: number, touchY: number) => {
+  if (!activeDragCard.value) return;
+
+  // Check which slot (if any) the touch ended over
+  const overSlot1 = isTouchInElement(touchX, touchY, slot1Ref.value);
+  const overSlot2 = isTouchInElement(touchX, touchY, slot2Ref.value);
+
+  let success = false;
+
+  if (overSlot1 && !slot1.value) {
+    // Drop in slot 1
+    success = placeCardInSlot(activeDragCard.value, 1);
+    if (success) {
+      haptics.successfulDrop();
+    }
+  } else if (overSlot2 && !slot2.value) {
+    // Drop in slot 2
+    success = placeCardInSlot(activeDragCard.value, 2);
+    if (success) {
+      haptics.successfulDrop();
+    }
+  }
+
+  if (!success) {
+    // Invalid drop
+    haptics.invalidDrop();
+  }
+
+  // Reset drag state
+  activeDragCard.value = null;
+  touchPosition.value = null;
+  showDragGhost.value = false;
+};
+
+/**
+ * Handle context menu - prevent on mobile to avoid interference with touch interactions
+ */
+const handleContextMenu = (event: MouseEvent) => {
+  // Only prevent on mobile devices
+  if (isMobile.value) {
+    event.preventDefault();
+  }
+};
+
 // Check Match Handler
 const handleCheckMatch = async () => {
   const relationship = checkMatch();
@@ -425,6 +599,16 @@ const handleModalClose = () => {
 </script>
 
 <style scoped>
+/* Mobile-specific: Prevent text selection and context menu */
+@media (max-width: 1023px) {
+  .game-board {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none; /* Disable iOS callout on long press */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+  }
+}
+
 .card-row {
   @apply relative;
 }
@@ -471,5 +655,46 @@ const handleModalClose = () => {
 
 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
   @apply bg-cyber-blue;
+}
+
+/* Mobile Drag Ghost Card */
+.drag-ghost-card {
+  position: fixed;
+  width: 150px;
+  height: 225px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 0.9;
+  border: 2px solid rgb(139, 92, 246);
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(139, 92, 246, 0.8),
+    0 0 60px rgba(139, 92, 246, 0.4);
+  filter: brightness(1.1);
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+/* Drag ghost transition */
+.drag-ghost-enter-active,
+.drag-ghost-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.drag-ghost-enter-from {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.drag-ghost-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Larger ghost on desktop for better visibility */
+@media (min-width: 768px) {
+  .drag-ghost-card {
+    width: 180px;
+    height: 270px;
+  }
 }
 </style>
