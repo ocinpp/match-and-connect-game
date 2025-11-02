@@ -1,0 +1,225 @@
+{
+  "cards": [
+    {
+      "id": "aperture",
+      "title": "Aperture",
+      "imageUrl": "https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "shutter-speed",
+      "title": "Shutter Speed",
+      "imageUrl": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "iso",
+      "title": "ISO",
+      "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "bokeh",
+      "title": "Bokeh",
+      "imageUrl": "https://images.unsplash.com/photo-1514539079130-25950c84af65?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "depth-of-field",
+      "title": "Depth of Field",
+      "imageUrl": "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "starburst",
+      "title": "Starburst",
+      "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "exposure",
+      "title": "Exposure",
+      "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "lens",
+      "title": "Lens",
+      "imageUrl": "https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "sensor",
+      "title": "Sensor",
+      "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "focal-length",
+      "title": "Focal Length",
+      "imageUrl": "https://images.unsplash.com/photo-1564466809058-bf4114d55352?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "motion-blur",
+      "title": "Motion Blur",
+      "imageUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "noise",
+      "title": "Noise",
+      "imageUrl": "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "dynamic-range",
+      "title": "Dynamic Range",
+      "imageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "chromatic-aberration",
+      "title": "Chromatic Aberration",
+      "imageUrl": "https://images.unsplash.com/photo-1535478044878-3ed83d5456ef?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "vignette",
+      "title": "Vignette",
+      "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["aperture", "bokeh"],
+      "type": "Creates",
+      "title": "Shallow Depth Effect",
+      "description": "A wide Aperture creates beautiful Bokeh by rendering out-of-focus areas as soft, creamy blur with distinctive shapes."
+    },
+    {
+      "cardIds": ["aperture", "starburst"],
+      "type": "Creates",
+      "title": "Diffraction Effect",
+      "description": "A narrow Aperture creates Starburst effects on bright lights, with the number of rays matching the aperture blade count."
+    },
+    {
+      "cardIds": ["aperture", "depth-of-field"],
+      "type": "Controls",
+      "title": "Focus Range",
+      "description": "Aperture controls Depth of Field - wider apertures create shallow focus, narrower apertures increase sharpness range."
+    },
+    {
+      "cardIds": ["aperture", "exposure"],
+      "type": "Affects",
+      "title": "Light Control",
+      "description": "Aperture affects Exposure by controlling how much light enters the camera through the lens opening."
+    },
+    {
+      "cardIds": ["shutter-speed", "motion-blur"],
+      "type": "Creates",
+      "title": "Movement Capture",
+      "description": "Slow Shutter Speed creates Motion Blur, capturing movement as artistic streaks and trails in the image."
+    },
+    {
+      "cardIds": ["shutter-speed", "exposure"],
+      "type": "Affects",
+      "title": "Time Control",
+      "description": "Shutter Speed affects Exposure by controlling how long the sensor is exposed to light during capture."
+    },
+    {
+      "cardIds": ["iso", "noise"],
+      "type": "Increases",
+      "title": "Sensitivity Trade-off",
+      "description": "Higher ISO increases Noise in images as the sensor amplifies the signal, creating visible grain and artifacts."
+    },
+    {
+      "cardIds": ["iso", "exposure"],
+      "type": "Affects",
+      "title": "Sensitivity Control",
+      "description": "ISO affects Exposure by controlling the sensor's sensitivity to light - higher ISO brightens the image."
+    },
+    {
+      "cardIds": ["lens", "aperture"],
+      "type": "Contains",
+      "title": "Optical Element",
+      "description": "A Lens contains the Aperture mechanism, with adjustable blades that control the opening size."
+    },
+    {
+      "cardIds": ["lens", "focal-length"],
+      "type": "Determines",
+      "title": "Optical Property",
+      "description": "A Lens determines Focal Length, which controls the field of view and magnification of the image."
+    },
+    {
+      "cardIds": ["lens", "chromatic-aberration"],
+      "type": "May Produce",
+      "title": "Optical Flaw",
+      "description": "Lower quality Lenses may produce Chromatic Aberration, visible as color fringing around high-contrast edges."
+    },
+    {
+      "cardIds": ["lens", "bokeh"],
+      "type": "Shapes",
+      "title": "Blur Quality",
+      "description": "The Lens design shapes Bokeh quality and character, with aperture blade count affecting blur shape."
+    },
+    {
+      "cardIds": ["sensor", "exposure"],
+      "type": "Captures",
+      "title": "Light Recording",
+      "description": "The Sensor captures Exposure by converting light into electrical signals that form the digital image."
+    },
+    {
+      "cardIds": ["sensor", "noise"],
+      "type": "Generates",
+      "title": "Signal Amplification",
+      "description": "The Sensor generates Noise when amplifying weak signals, especially in low light or at high ISO."
+    },
+    {
+      "cardIds": ["sensor", "dynamic-range"],
+      "type": "Determines",
+      "title": "Tonal Capacity",
+      "description": "The Sensor determines Dynamic Range - its ability to capture detail in both bright highlights and dark shadows."
+    },
+    {
+      "cardIds": ["focal-length", "depth-of-field"],
+      "type": "Affects",
+      "title": "Compression Effect",
+      "description": "Focal Length affects Depth of Field - longer focal lengths create shallower depth and more background compression."
+    },
+    {
+      "cardIds": ["focal-length", "bokeh"],
+      "type": "Influences",
+      "title": "Blur Magnification",
+      "description": "Longer Focal Length influences Bokeh by magnifying out-of-focus areas, creating larger, more prominent blur."
+    },
+    {
+      "cardIds": ["depth-of-field", "bokeh"],
+      "type": "Defines",
+      "title": "Blur Zone",
+      "description": "Shallow Depth of Field defines where Bokeh appears, creating the out-of-focus zones in front and behind the subject."
+    },
+    {
+      "cardIds": ["vignette", "lens"],
+      "type": "Caused By",
+      "title": "Light Fall-off",
+      "description": "Vignette is caused by Lens design, where light falls off toward the edges, darkening the corners of the image."
+    },
+    {
+      "cardIds": ["vignette", "aperture"],
+      "type": "Reduced By",
+      "title": "Stopping Down",
+      "description": "Vignette is reduced by narrower Aperture settings, as stopping down minimizes edge light fall-off."
+    },
+    {
+      "cardIds": ["exposure", "dynamic-range"],
+      "type": "Limited By",
+      "title": "Tonal Constraint",
+      "description": "Exposure is limited by Dynamic Range - overexposure clips highlights, underexposure loses shadow detail."
+    },
+    {
+      "cardIds": ["starburst", "lens"],
+      "type": "Shaped By",
+      "title": "Aperture Blades",
+      "description": "Starburst effects are shaped by Lens aperture blade design - more blades create more rays in the starburst."
+    },
+    {
+      "cardIds": ["chromatic-aberration", "aperture"],
+      "type": "Reduced By",
+      "title": "Stopping Down",
+      "description": "Chromatic Aberration is reduced by narrower Aperture, as stopping down minimizes edge aberrations."
+    },
+    {
+      "cardIds": ["motion-blur", "shutter-speed"],
+      "type": "Controlled By",
+      "title": "Time Exposure",
+      "description": "Motion Blur is controlled by Shutter Speed - slower speeds increase blur, faster speeds freeze motion."
+    }
+  ]
+}

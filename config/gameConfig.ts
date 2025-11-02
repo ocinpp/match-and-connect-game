@@ -4,6 +4,22 @@
  */
 
 export const GAME_CONFIG = {
+  // ===== Theme Settings =====
+
+  /**
+   * Active theme
+   * - 'scifi': Sci-Fi/Futuristic Tech (default)
+   * - 'mythology': Mythology & Legends
+   * - 'ecosystem': Ecosystem & Nature
+   * - 'fantasy-rpg': Fantasy RPG
+   * - 'space': Space Exploration
+   * - 'anime': Japanese Anime (Ultraman & Kamen Rider)
+   * - 'architecture': Architecture & Cities
+   * - 'color': Color Theory (Light & RGB)
+   * - 'photography': Photography Techniques
+   */
+  THEME: 'ai' as 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai',
+
   // ===== Interaction Settings =====
 
   /**

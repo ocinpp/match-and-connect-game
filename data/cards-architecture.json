@@ -1,0 +1,202 @@
+{
+  "cards": [
+    {
+      "id": "skyscraper",
+      "title": "Skyscraper",
+      "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "bridge",
+      "title": "Bridge",
+      "imageUrl": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "metro",
+      "title": "Metro",
+      "imageUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "power-grid",
+      "title": "Power Grid",
+      "imageUrl": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "park",
+      "title": "Urban Park",
+      "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "water-tower",
+      "title": "Water Tower",
+      "imageUrl": "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "plaza",
+      "title": "Public Plaza",
+      "imageUrl": "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "highway",
+      "title": "Highway",
+      "imageUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "stadium",
+      "title": "Stadium",
+      "imageUrl": "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "library",
+      "title": "Library",
+      "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "hospital",
+      "title": "Hospital",
+      "imageUrl": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "port",
+      "title": "Port",
+      "imageUrl": "https://images.unsplash.com/photo-1605648916319-cf082f7524a1?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "solar-panel",
+      "title": "Solar Farm",
+      "imageUrl": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "train-station",
+      "title": "Train Station",
+      "imageUrl": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "district",
+      "title": "Business District",
+      "imageUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["power-grid", "skyscraper"],
+      "type": "Energizes",
+      "title": "Urban Power Supply",
+      "description": "The Power Grid energizes Skyscrapers, delivering electricity to thousands of offices, apartments, and businesses."
+    },
+    {
+      "cardIds": ["metro", "train-station"],
+      "type": "Connects To",
+      "title": "Transit Hub",
+      "description": "The Metro connects to Train Stations, creating an integrated public transportation network across the city."
+    },
+    {
+      "cardIds": ["bridge", "highway"],
+      "type": "Extends",
+      "title": "Transportation Network",
+      "description": "Bridges extend Highways across rivers and valleys, enabling continuous flow of traffic through the city."
+    },
+    {
+      "cardIds": ["water-tower", "hospital"],
+      "type": "Supplies",
+      "title": "Critical Infrastructure",
+      "description": "Water Towers supply Hospitals with clean water, ensuring medical facilities can operate during emergencies."
+    },
+    {
+      "cardIds": ["park", "plaza"],
+      "type": "Complements",
+      "title": "Public Spaces",
+      "description": "Urban Parks complement Public Plazas, providing green spaces and gathering areas for community life."
+    },
+    {
+      "cardIds": ["solar-panel", "power-grid"],
+      "type": "Feeds Into",
+      "title": "Renewable Energy",
+      "description": "Solar Farms feed into the Power Grid, providing clean renewable energy to reduce the city's carbon footprint."
+    },
+    {
+      "cardIds": ["metro", "district"],
+      "type": "Serves",
+      "title": "Commuter Transport",
+      "description": "The Metro serves the Business District, transporting thousands of workers daily to offices and commercial centers."
+    },
+    {
+      "cardIds": ["port", "bridge"],
+      "type": "Accessed By",
+      "title": "Maritime Gateway",
+      "description": "Ports are accessed by Bridges, connecting shipping terminals to the city's road network for cargo distribution."
+    },
+    {
+      "cardIds": ["stadium", "metro"],
+      "type": "Connected By",
+      "title": "Event Access",
+      "description": "Stadiums are connected by Metro lines, allowing thousands of fans to attend events without traffic congestion."
+    },
+    {
+      "cardIds": ["library", "plaza"],
+      "type": "Faces",
+      "title": "Cultural Center",
+      "description": "Libraries often face Public Plazas, creating cultural centers where knowledge and community intersect."
+    },
+    {
+      "cardIds": ["skyscraper", "district"],
+      "type": "Defines",
+      "title": "Urban Skyline",
+      "description": "Skyscrapers define the Business District, creating the iconic skyline that represents the city's economic power."
+    },
+    {
+      "cardIds": ["highway", "port"],
+      "type": "Links",
+      "title": "Cargo Route",
+      "description": "Highways link Ports to inland destinations, forming the arteries of commerce that move goods across regions."
+    },
+    {
+      "cardIds": ["train-station", "district"],
+      "type": "Anchors",
+      "title": "Transit-Oriented Development",
+      "description": "Train Stations anchor Business Districts, with high-density development clustering around major transit hubs."
+    },
+    {
+      "cardIds": ["park", "water-tower"],
+      "type": "Irrigated By",
+      "title": "Green Infrastructure",
+      "description": "Urban Parks are irrigated by Water Tower systems, maintaining green spaces even during dry seasons."
+    },
+    {
+      "cardIds": ["hospital", "metro"],
+      "type": "Accessible Via",
+      "title": "Emergency Access",
+      "description": "Hospitals are accessible via Metro, ensuring patients and medical staff can reach facilities quickly."
+    },
+    {
+      "cardIds": ["solar-panel", "skyscraper"],
+      "type": "Powers",
+      "title": "Green Building",
+      "description": "Solar Panels power modern Skyscrapers, with rooftop installations reducing reliance on the grid."
+    },
+    {
+      "cardIds": ["plaza", "metro"],
+      "type": "Served By",
+      "title": "Urban Gathering",
+      "description": "Public Plazas are served by Metro stations, making them accessible hubs for events and daily life."
+    },
+    {
+      "cardIds": ["bridge", "train-station"],
+      "type": "Supports",
+      "title": "Rail Infrastructure",
+      "description": "Bridges support Train Stations by carrying rail lines across obstacles, connecting distant neighborhoods."
+    },
+    {
+      "cardIds": ["port", "power-grid"],
+      "type": "Powered By",
+      "title": "Industrial Energy",
+      "description": "Ports are powered by the Power Grid, running massive cranes and refrigeration systems for cargo handling."
+    },
+    {
+      "cardIds": ["stadium", "park"],
+      "type": "Adjacent To",
+      "title": "Recreation Zone",
+      "description": "Stadiums are often adjacent to Parks, creating recreation zones that serve both athletes and families."
+    }
+  ]
+}
+

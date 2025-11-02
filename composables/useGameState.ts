@@ -1,5 +1,36 @@
 import { ref, computed, onMounted } from 'vue'
-import cardsData from '~/data/cards.json'
+import { GAME_CONFIG } from '~/config/gameConfig'
+
+// Import all theme data
+import scifiData from '~/data/cards.json'
+import mythologyData from '~/data/cards-mythology.json'
+import ecosystemData from '~/data/cards-ecosystem.json'
+import fantasyRpgData from '~/data/cards-fantasy-rpg.json'
+import spaceData from '~/data/cards-space.json'
+import animeData from '~/data/cards-anime.json'
+import architectureData from '~/data/cards-architecture.json'
+import colorData from '~/data/cards-color.json'
+import photographyData from '~/data/cards-photography.json'
+import aiData from '~/data/cards-ai.json'
+
+// Theme data map
+const THEME_DATA = {
+  'scifi': scifiData,
+  'mythology': mythologyData,
+  'ecosystem': ecosystemData,
+  'fantasy-rpg': fantasyRpgData,
+  'space': spaceData,
+  'anime': animeData,
+  'architecture': architectureData,
+  'color': colorData,
+  'photography': photographyData,
+  'ai': aiData,
+} as const
+
+// Get active theme data
+const getThemeData = () => {
+  return THEME_DATA[GAME_CONFIG.THEME]
+}
 
 export interface Card {
   id: string
@@ -20,9 +51,10 @@ export interface SlotState {
 }
 
 export const useGameState = () => {
-  // Load cards and relationships from JSON
-  const allCards = ref<Card[]>(cardsData.cards)
-  const relationships = ref<Relationship[]>(cardsData.relationships)
+  // Load cards and relationships from active theme
+  const themeData = getThemeData()
+  const allCards = ref<Card[]>(themeData.cards)
+  const relationships = ref<Relationship[]>(themeData.relationships)
 
   // Slot states
   const slot1 = ref<Card | null>(null)

@@ -1,0 +1,201 @@
+{
+  "cards": [
+    {
+      "id": "warrior",
+      "title": "Warrior",
+      "imageUrl": "https://images.unsplash.com/photo-1589519160732-57fc498494f8?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "mage",
+      "title": "Mage",
+      "imageUrl": "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "rogue",
+      "title": "Rogue",
+      "imageUrl": "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "sword",
+      "title": "Sword",
+      "imageUrl": "https://images.unsplash.com/photo-1598495496118-d8e5c7e5e4b5?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "spell-book",
+      "title": "Spell Book",
+      "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "dagger",
+      "title": "Dagger",
+      "imageUrl": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "shield",
+      "title": "Shield",
+      "imageUrl": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "potion",
+      "title": "Potion",
+      "imageUrl": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "dragon-boss",
+      "title": "Dragon",
+      "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "castle",
+      "title": "Castle",
+      "imageUrl": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "dungeon",
+      "title": "Dungeon",
+      "imageUrl": "https://images.unsplash.com/photo-1532798442725-41036acc7489?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "treasure",
+      "title": "Treasure",
+      "imageUrl": "https://images.unsplash.com/photo-1610375461246-83df859d849d?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "staff",
+      "title": "Magic Staff",
+      "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "armor",
+      "title": "Armor",
+      "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "enchantment",
+      "title": "Enchantment",
+      "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["warrior", "sword"],
+      "type": "Wields",
+      "title": "Master of Blades",
+      "description": "The Warrior wields the Sword with unmatched skill, trained through years of combat to strike with precision and power."
+    },
+    {
+      "cardIds": ["mage", "spell-book"],
+      "type": "Casts From",
+      "title": "Arcane Knowledge",
+      "description": "The Mage casts powerful spells from the Spell Book, channeling ancient magical knowledge into devastating effects."
+    },
+    {
+      "cardIds": ["rogue", "dagger"],
+      "type": "Wields",
+      "title": "Silent Strike",
+      "description": "The Rogue wields twin Daggers with deadly precision, striking from the shadows before enemies know they're there."
+    },
+    {
+      "cardIds": ["warrior", "shield"],
+      "type": "Defends With",
+      "title": "Stalwart Defense",
+      "description": "The Warrior defends with a Shield, forming an impenetrable barrier that protects allies and absorbs enemy attacks."
+    },
+    {
+      "cardIds": ["mage", "staff"],
+      "type": "Channels Through",
+      "title": "Arcane Focus",
+      "description": "The Mage channels magical energy through the Staff, amplifying spell power and reducing the cost of casting."
+    },
+    {
+      "cardIds": ["potion", "warrior"],
+      "type": "Heals",
+      "title": "Battle Recovery",
+      "description": "Potions heal the Warrior's wounds in the heat of battle, restoring health and stamina to continue fighting."
+    },
+    {
+      "cardIds": ["dragon-boss", "treasure"],
+      "type": "Guards",
+      "title": "Dragon's Hoard",
+      "description": "The Dragon guards its Treasure jealously, sleeping atop mountains of gold and magical artifacts collected over centuries."
+    },
+    {
+      "cardIds": ["sword", "enchantment"],
+      "type": "Enhanced By",
+      "title": "Magical Weapon",
+      "description": "The Sword is enhanced by Enchantment, glowing with magical energy that increases damage and grants special abilities."
+    },
+    {
+      "cardIds": ["castle", "warrior"],
+      "type": "Trains",
+      "title": "Knight's Training",
+      "description": "The Castle trains Warriors in its barracks, producing skilled knights who defend the realm from threats."
+    },
+    {
+      "cardIds": ["dungeon", "treasure"],
+      "type": "Hides",
+      "title": "Hidden Riches",
+      "description": "The Dungeon hides Treasure in its deepest chambers, protected by traps, monsters, and ancient curses."
+    },
+    {
+      "cardIds": ["rogue", "dungeon"],
+      "type": "Explores",
+      "title": "Dungeon Delver",
+      "description": "The Rogue explores Dungeons with stealth and cunning, disarming traps and finding secret passages others miss."
+    },
+    {
+      "cardIds": ["mage", "enchantment"],
+      "type": "Creates",
+      "title": "Arcane Crafting",
+      "description": "The Mage creates Enchantments through ritual magic, imbuing items with permanent magical properties."
+    },
+    {
+      "cardIds": ["armor", "warrior"],
+      "type": "Protects",
+      "title": "Heavy Armor",
+      "description": "Armor protects the Warrior from physical attacks, allowing them to stand on the front lines and absorb damage."
+    },
+    {
+      "cardIds": ["spell-book", "enchantment"],
+      "type": "Contains",
+      "title": "Magical Formulas",
+      "description": "The Spell Book contains Enchantment formulas, teaching mages how to permanently bind magic to physical objects."
+    },
+    {
+      "cardIds": ["dragon-boss", "castle"],
+      "type": "Threatens",
+      "title": "Dragon Siege",
+      "description": "The Dragon threatens the Castle with fire and fury, demanding tribute or facing the destruction of the kingdom."
+    },
+    {
+      "cardIds": ["potion", "mage"],
+      "type": "Brewed By",
+      "title": "Alchemical Art",
+      "description": "Potions are brewed by Mages using alchemical knowledge, combining magical ingredients to create powerful elixirs."
+    },
+    {
+      "cardIds": ["dagger", "enchantment"],
+      "type": "Enhanced By",
+      "title": "Poisoned Blade",
+      "description": "The Dagger is enhanced by Enchantment with poison or shadow magic, making each strike more lethal."
+    },
+    {
+      "cardIds": ["warrior", "dragon-boss"],
+      "type": "Battles",
+      "title": "Dragon Slayer",
+      "description": "The Warrior battles the Dragon in epic combat, using strength and courage to overcome the legendary beast."
+    },
+    {
+      "cardIds": ["staff", "enchantment"],
+      "type": "Infused With",
+      "title": "Arcane Power",
+      "description": "The Staff is infused with Enchantment, becoming a legendary artifact that amplifies the wielder's magical abilities."
+    },
+    {
+      "cardIds": ["rogue", "treasure"],
+      "type": "Steals",
+      "title": "Master Thief",
+      "description": "The Rogue steals Treasure with unmatched skill, slipping past guards and traps to claim the most valuable prizes."
+    }
+  ]
+}

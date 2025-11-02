@@ -1,0 +1,202 @@
+{
+  "cards": [
+    {
+      "id": "ultraman",
+      "title": "Ultraman",
+      "imageUrl": "https://images.unsplash.com/photo-1531259683007-016a7b628fc3?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "kamen-rider",
+      "title": "Kamen Rider",
+      "imageUrl": "https://images.unsplash.com/photo-1608889476561-6242cfdbf622?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "kaiju",
+      "title": "Kaiju",
+      "imageUrl": "https://images.unsplash.com/photo-1578926078164-61a39d3c3b57?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "mecha",
+      "title": "Mecha",
+      "imageUrl": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "transformation-belt",
+      "title": "Transformation Belt",
+      "imageUrl": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "color-timer",
+      "title": "Color Timer",
+      "imageUrl": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "spacium-beam",
+      "title": "Spacium Beam",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "rider-kick",
+      "title": "Rider Kick",
+      "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "monster-island",
+      "title": "Monster Island",
+      "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "science-patrol",
+      "title": "Science Patrol",
+      "imageUrl": "https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "shocker",
+      "title": "Shocker",
+      "imageUrl": "https://images.unsplash.com/photo-1509023464722-18d996393ca8?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "beta-capsule",
+      "title": "Beta Capsule",
+      "imageUrl": "https://images.unsplash.com/photo-1610375461246-83df859d849d?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "giant-form",
+      "title": "Giant Form",
+      "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "rider-machine",
+      "title": "Rider Machine",
+      "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "ultra-star",
+      "title": "Land of Light",
+      "imageUrl": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["ultraman", "beta-capsule"],
+      "type": "Transforms With",
+      "title": "Heroic Transformation",
+      "description": "Ultraman transforms using the Beta Capsule, a device that allows the hero to assume giant form when Earth is threatened."
+    },
+    {
+      "cardIds": ["kamen-rider", "transformation-belt"],
+      "type": "Powers Up With",
+      "title": "Henshin!",
+      "description": "Kamen Rider powers up with the Transformation Belt, shouting 'Henshin!' to activate the metamorphosis into a masked hero."
+    },
+    {
+      "cardIds": ["ultraman", "color-timer"],
+      "type": "Limited By",
+      "title": "Three Minute Warning",
+      "description": "Ultraman's Color Timer limits his time on Earth, flashing red when energy runs low after three minutes of battle."
+    },
+    {
+      "cardIds": ["ultraman", "spacium-beam"],
+      "type": "Unleashes",
+      "title": "Signature Attack",
+      "description": "Ultraman unleashes the Spacium Beam by crossing his arms, firing a devastating ray of light energy at monsters."
+    },
+    {
+      "cardIds": ["kamen-rider", "rider-kick"],
+      "type": "Executes",
+      "title": "Finishing Move",
+      "description": "Kamen Rider executes the legendary Rider Kick, a powerful jumping kick that defeats enemies in a single strike."
+    },
+    {
+      "cardIds": ["ultraman", "kaiju"],
+      "type": "Battles",
+      "title": "Giant Monster Combat",
+      "description": "Ultraman battles Kaiju in epic city-destroying fights, growing to giant size to match the monsters' scale."
+    },
+    {
+      "cardIds": ["kamen-rider", "shocker"],
+      "type": "Fights Against",
+      "title": "Evil Organization",
+      "description": "Kamen Rider fights against Shocker, the evil organization that creates monsters and plots world domination."
+    },
+    {
+      "cardIds": ["ultraman", "giant-form"],
+      "type": "Assumes",
+      "title": "Size Transformation",
+      "description": "Ultraman assumes Giant Form to battle monsters, growing from human size to over 40 meters tall."
+    },
+    {
+      "cardIds": ["kaiju", "monster-island"],
+      "type": "Originates From",
+      "title": "Monster Homeland",
+      "description": "Many Kaiju originate from Monster Island, a mysterious place where giant creatures live in isolation."
+    },
+    {
+      "cardIds": ["science-patrol", "ultraman"],
+      "type": "Supports",
+      "title": "Defense Team",
+      "description": "Science Patrol supports Ultraman in defending Earth, providing military backup and scientific expertise."
+    },
+    {
+      "cardIds": ["kamen-rider", "rider-machine"],
+      "type": "Rides",
+      "title": "Cyclone Motorcycle",
+      "description": "Kamen Rider rides the Rider Machine, a specially modified motorcycle that matches his enhanced abilities."
+    },
+    {
+      "cardIds": ["ultraman", "ultra-star"],
+      "type": "Comes From",
+      "title": "M78 Nebula",
+      "description": "Ultraman comes from the Land of Light in the M78 Nebula, home to the Ultra Warriors who protect the universe."
+    },
+    {
+      "cardIds": ["mecha", "kaiju"],
+      "type": "Defends Against",
+      "title": "Giant Robot Defense",
+      "description": "Mecha defend against Kaiju attacks, piloted by humans to fight monsters on equal footing."
+    },
+    {
+      "cardIds": ["transformation-belt", "rider-kick"],
+      "type": "Enables",
+      "title": "Power Source",
+      "description": "The Transformation Belt enables the Rider Kick by channeling energy through the rider's body into a devastating attack."
+    },
+    {
+      "cardIds": ["color-timer", "giant-form"],
+      "type": "Monitors",
+      "title": "Energy Indicator",
+      "description": "The Color Timer monitors Ultraman's energy in Giant Form, warning when he must return to normal size."
+    },
+    {
+      "cardIds": ["science-patrol", "mecha"],
+      "type": "Deploys",
+      "title": "Defense Force",
+      "description": "Science Patrol deploys Mecha units when conventional weapons fail against giant monster threats."
+    },
+    {
+      "cardIds": ["shocker", "kaiju"],
+      "type": "Creates",
+      "title": "Monster Engineering",
+      "description": "Shocker creates artificial Kaiju through genetic engineering and cybernetic enhancement for their evil plans."
+    },
+    {
+      "cardIds": ["spacium-beam", "kaiju"],
+      "type": "Defeats",
+      "title": "Monster Elimination",
+      "description": "The Spacium Beam defeats Kaiju with concentrated light energy, often destroying them in a single shot."
+    },
+    {
+      "cardIds": ["beta-capsule", "ultra-star"],
+      "type": "Connected To",
+      "title": "Ultra Technology",
+      "description": "The Beta Capsule is connected to the Land of Light's technology, channeling Ultra energy across space."
+    },
+    {
+      "cardIds": ["rider-machine", "shocker"],
+      "type": "Pursues",
+      "title": "High-Speed Chase",
+      "description": "The Rider Machine pursues Shocker agents at high speed, allowing Kamen Rider to intercept their evil schemes."
+    }
+  ]
+}
+

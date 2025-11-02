@@ -1,0 +1,202 @@
+{
+  "cards": [
+    {
+      "id": "black-hole",
+      "title": "Black Hole",
+      "imageUrl": "https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "nebula",
+      "title": "Nebula",
+      "imageUrl": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "supernova",
+      "title": "Supernova",
+      "imageUrl": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "pulsar",
+      "title": "Pulsar",
+      "imageUrl": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "galaxy",
+      "title": "Galaxy",
+      "imageUrl": "https://images.unsplash.com/photo-1464802686167-b939a6910659?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "asteroid",
+      "title": "Asteroid",
+      "imageUrl": "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "comet",
+      "title": "Comet",
+      "imageUrl": "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "space-station",
+      "title": "Space Station",
+      "imageUrl": "https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "satellite",
+      "title": "Satellite",
+      "imageUrl": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "rocket",
+      "title": "Rocket",
+      "imageUrl": "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "mars",
+      "title": "Mars",
+      "imageUrl": "https://images.unsplash.com/photo-1614732484003-ef9881555dc3?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "moon",
+      "title": "Moon",
+      "imageUrl": "https://images.unsplash.com/photo-1509023464722-18d996393ca8?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "solar-flare",
+      "title": "Solar Flare",
+      "imageUrl": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "wormhole",
+      "title": "Wormhole",
+      "imageUrl": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "dark-matter",
+      "title": "Dark Matter",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["black-hole", "galaxy"],
+      "type": "Centers",
+      "title": "Galactic Core",
+      "description": "A supermassive Black Hole centers most Galaxies, its immense gravity holding billions of stars in orbital dance."
+    },
+    {
+      "cardIds": ["supernova", "nebula"],
+      "type": "Creates",
+      "title": "Stellar Birth",
+      "description": "When a star explodes as a Supernova, it creates a Nebula - a cosmic nursery where new stars are born from the scattered material."
+    },
+    {
+      "cardIds": ["supernova", "black-hole"],
+      "type": "Collapses Into",
+      "title": "Stellar Death",
+      "description": "The most massive Supernovas collapse into Black Holes, creating regions where gravity is so strong that not even light can escape."
+    },
+    {
+      "cardIds": ["pulsar", "supernova"],
+      "type": "Born From",
+      "title": "Neutron Star Formation",
+      "description": "Pulsars are born from Supernovas, rapidly spinning neutron stars that emit beams of radiation like cosmic lighthouses."
+    },
+    {
+      "cardIds": ["nebula", "galaxy"],
+      "type": "Forms Within",
+      "title": "Star Formation Regions",
+      "description": "Nebulas form within Galaxies as clouds of gas and dust, creating the colorful regions where new stars ignite."
+    },
+    {
+      "cardIds": ["rocket", "space-station"],
+      "type": "Delivers To",
+      "title": "Crew Transport",
+      "description": "Rockets deliver astronauts and supplies to the Space Station, maintaining humanity's permanent presence in orbit."
+    },
+    {
+      "cardIds": ["satellite", "space-station"],
+      "type": "Orbits With",
+      "title": "Orbital Network",
+      "description": "Satellites orbit alongside the Space Station, forming a network of scientific instruments and communication relays."
+    },
+    {
+      "cardIds": ["rocket", "mars"],
+      "type": "Travels To",
+      "title": "Mars Mission",
+      "description": "Advanced Rockets travel to Mars, carrying rovers and equipment to explore the red planet's surface."
+    },
+    {
+      "cardIds": ["asteroid", "comet"],
+      "type": "Differs From",
+      "title": "Rocky vs Icy",
+      "description": "Asteroids are rocky bodies while Comets are icy, but both are ancient remnants from the solar system's formation."
+    },
+    {
+      "cardIds": ["comet", "nebula"],
+      "type": "Originates From",
+      "title": "Primordial Material",
+      "description": "Comets contain pristine material from the Nebula that formed our solar system, frozen time capsules from 4.6 billion years ago."
+    },
+    {
+      "cardIds": ["moon", "mars"],
+      "type": "Stepping Stone To",
+      "title": "Lunar Gateway",
+      "description": "The Moon serves as a stepping stone to Mars, where we test technologies and train for deep space exploration."
+    },
+    {
+      "cardIds": ["solar-flare", "satellite"],
+      "type": "Threatens",
+      "title": "Space Weather",
+      "description": "Solar Flares threaten Satellites with intense radiation and electromagnetic pulses that can damage electronics."
+    },
+    {
+      "cardIds": ["wormhole", "black-hole"],
+      "type": "Theorized From",
+      "title": "Spacetime Tunnel",
+      "description": "Wormholes are theorized to connect distant Black Holes, creating shortcuts through spacetime itself."
+    },
+    {
+      "cardIds": ["dark-matter", "galaxy"],
+      "type": "Binds",
+      "title": "Invisible Scaffolding",
+      "description": "Dark Matter binds Galaxies together with invisible gravity, making up 85% of the universe's mass."
+    },
+    {
+      "cardIds": ["black-hole", "wormhole"],
+      "type": "May Connect",
+      "title": "Einstein-Rosen Bridge",
+      "description": "Some theories suggest Black Holes may connect to Wormholes, creating bridges between different regions of spacetime."
+    },
+    {
+      "cardIds": ["pulsar", "satellite"],
+      "type": "Navigates",
+      "title": "Cosmic GPS",
+      "description": "Pulsars can navigate Satellites like cosmic GPS, their precise timing helping spacecraft determine position in deep space."
+    },
+    {
+      "cardIds": ["asteroid", "mars"],
+      "type": "Impacts",
+      "title": "Crater Formation",
+      "description": "Asteroids have impacted Mars throughout history, creating the massive craters that cover the red planet's surface."
+    },
+    {
+      "cardIds": ["space-station", "moon"],
+      "type": "Observes",
+      "title": "Lunar Research",
+      "description": "The Space Station observes the Moon, studying its geology and testing technologies for future lunar bases."
+    },
+    {
+      "cardIds": ["dark-matter", "black-hole"],
+      "type": "Interacts With",
+      "title": "Gravitational Dance",
+      "description": "Dark Matter interacts with Black Holes through gravity, influencing how matter falls into the event horizon."
+    },
+    {
+      "cardIds": ["galaxy", "wormhole"],
+      "type": "Connected By",
+      "title": "Intergalactic Bridge",
+      "description": "Wormholes could theoretically connect distant Galaxies, allowing instantaneous travel across cosmic distances."
+    }
+  ]
+}
+
