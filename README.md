@@ -1,6 +1,16 @@
 # Match and Connect - Card Connection Game
 
-A stylish card matching game built with Nuxt 4 and Tailwind CSS v4, featuring cyber/futuristic themed cards and interactive drag-and-drop gameplay with advanced mobile touch interactions.
+A stylish card matching game built with Nuxt 4 and Tailwind CSS v4, featuring **10 unique themes** including a comprehensive **AI/Machine Learning theme** with 43 relationships. Interactive drag-and-drop gameplay with advanced mobile touch interactions.
+
+## 🤖 Featured: AI Theme
+
+The **Artificial Intelligence** theme is our most comprehensive theme with **43 relationships** covering:
+- **Machine Learning Fundamentals** - Training Data, Neural Networks, Backpropagation
+- **Modern AI Architecture** - Transformers, LLMs, Attention Mechanisms
+- **Deep Learning** - Embeddings, Gradient Descent, Fine-Tuning
+- **Generative AI** - Prompts, Inference, Tokenization
+
+Perfect for AI enthusiasts, ML students, and anyone interested in understanding how modern AI works!
 
 ## Features
 
@@ -27,6 +37,7 @@ A stylish card matching game built with Nuxt 4 and Tailwind CSS v4, featuring cy
 ### User Experience
 - **Onboarding Modal**: First-time tutorial with localStorage tracking (shows once)
 - **Responsive Design**: Optimized for mobile (< 1024px) and desktop
+- **10 Unique Themes**: Choose from Sci-Fi, Mythology, AI, Space, Anime, and more
 - **Cyber/Futuristic Theme**: Stylish design with neon purple, cyber blue, and matrix green colors
 - **Dynamic Viewport Height**: Uses `dvh` units for better mobile browser compatibility
 
@@ -44,6 +55,7 @@ The game uses a centralized configuration system in `config/gameConfig.ts`:
 
 ```typescript
 export const GAME_CONFIG = {
+  THEME: 'ai',                      // 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai'
   MOBILE_INTERACTION_MODE: 'both',  // 'drag' | 'tap' | 'both'
   LONG_PRESS_DURATION: 600,         // ms to activate drag
   PROGRESS_RING_DELAY: 150,         // ms before showing progress ring
@@ -121,13 +133,27 @@ drop-and-match/
 │   └── ToastNotification.vue  # Toast notification component
 ├── composables/
 │   ├── useGameState.ts        # Game state management
+│   ├── useTheme.ts            # Theme utilities
 │   └── useOnboarding.ts       # Onboarding state with localStorage
 ├── config/
 │   └── gameConfig.ts          # Centralized game configuration
 ├── utils/
 │   └── haptics.ts             # Haptic feedback utilities
 ├── data/
-│   └── cards.json             # Card and relationship data
+│   ├── cards.json             # Sci-Fi theme data
+│   ├── cards-mythology.json   # Mythology theme data
+│   ├── cards-ecosystem.json   # Ecosystem theme data
+│   ├── cards-fantasy-rpg.json # Fantasy RPG theme data
+│   ├── cards-space.json       # Space theme data
+│   ├── cards-anime.json       # Anime theme data
+│   ├── cards-architecture.json # Architecture theme data
+│   ├── cards-color.json       # Color Theory theme data
+│   ├── cards-photography.json # Photography theme data
+│   └── cards-ai.json          # AI theme data (43 relationships!)
+├── docs/                      # Comprehensive documentation
+│   ├── INDEX.md               # Documentation index
+│   ├── QUICK_START_THEMES.md  # Quick theme switching guide
+│   └── ...                    # Additional guides
 ├── assets/
 │   └── css/
 │       └── main.css           # Global styles and Tailwind config
@@ -137,6 +163,31 @@ drop-and-match/
 ```
 
 ## Customization
+
+### Switching Themes
+
+The game includes **10 unique themes**. To switch themes, edit `config/gameConfig.ts`:
+
+```typescript
+THEME: 'ai'  // Options: 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai'
+```
+
+**Available Themes:**
+1. `'scifi'` - **Sci-Fi Tech** - Quantum Core, Neural Network, Hologram (~20 relationships)
+2. `'mythology'` - **Mythology & Legends** - Zeus, Thor, Phoenix, Dragon (~20 relationships)
+3. `'ecosystem'` - **Ecosystem & Nature** - Sun, Rain, Tree, Bee, Flower (~20 relationships)
+4. `'fantasy-rpg'` - **Fantasy RPG** - Warrior, Mage, Rogue, Sword, Dragon (~20 relationships)
+5. `'space'` - **Space Exploration** - Black Hole, Nebula, Galaxy, Supernova (~20 relationships)
+6. `'anime'` - **Japanese Anime** - Ultraman, Kamen Rider, Kaiju, Mecha (~20 relationships)
+7. `'architecture'` - **Architecture & Cities** - Skyscraper, Bridge, Metro, Power Grid (~20 relationships)
+8. `'color'` - **Color Theory** - Red Light, Green Light, Blue Light, RGB Pixel (26 relationships)
+9. `'photography'` - **Photography** - Aperture, Bokeh, Shutter Speed, ISO (24 relationships)
+10. `'ai'` - **Artificial Intelligence** 🤖 - Neural Network, LLM, Transformer, Generative AI (**43 relationships** - Most comprehensive!)
+
+📚 **Documentation:** See the [docs/](./docs/) folder for comprehensive theme guides:
+- [Quick Start Guide](./docs/QUICK_START_THEMES.md) - Switch themes in 30 seconds
+- [All Themes Overview](./docs/FINAL_THEME_SUMMARY.md) - Complete guide to all themes
+- [Documentation Index](./docs/INDEX.md) - Full documentation directory
 
 ### Mobile Interaction Mode
 

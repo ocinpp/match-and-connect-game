@@ -1,0 +1,202 @@
+{
+  "cards": [
+    {
+      "id": "sun",
+      "title": "Sun",
+      "imageUrl": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "rain",
+      "title": "Rain",
+      "imageUrl": "https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "soil",
+      "title": "Soil",
+      "imageUrl": "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "bee",
+      "title": "Bee",
+      "imageUrl": "https://images.unsplash.com/photo-1558818498-28c1e002b655?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "flower",
+      "title": "Flower",
+      "imageUrl": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "tree",
+      "title": "Tree",
+      "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "river",
+      "title": "River",
+      "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "mushroom",
+      "title": "Mushroom",
+      "imageUrl": "https://images.unsplash.com/photo-1459156212016-c812468e2115?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "bird",
+      "title": "Bird",
+      "imageUrl": "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "oxygen",
+      "title": "Oxygen",
+      "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "decomposer",
+      "title": "Decomposer",
+      "imageUrl": "https://images.unsplash.com/photo-1584714268709-c3dd9c92b378?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "predator",
+      "title": "Predator",
+      "imageUrl": "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "seed",
+      "title": "Seed",
+      "imageUrl": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "carbon-dioxide",
+      "title": "Carbon Dioxide",
+      "imageUrl": "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "forest",
+      "title": "Forest",
+      "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["sun", "flower"],
+      "type": "Energizes",
+      "title": "Photosynthesis",
+      "description": "The Sun provides energy for Flowers through photosynthesis, converting light into chemical energy that fuels plant growth."
+    },
+    {
+      "cardIds": ["bee", "flower"],
+      "type": "Pollinates",
+      "title": "Pollination Partnership",
+      "description": "Bees pollinate Flowers as they collect nectar, transferring pollen between plants and enabling reproduction in exchange for food."
+    },
+    {
+      "cardIds": ["rain", "soil"],
+      "type": "Nourishes",
+      "title": "Water Cycle",
+      "description": "Rain nourishes the Soil, replenishing groundwater and providing essential moisture for plant roots and soil organisms."
+    },
+    {
+      "cardIds": ["tree", "oxygen"],
+      "type": "Produces",
+      "title": "Oxygen Production",
+      "description": "Trees produce Oxygen as a byproduct of photosynthesis, releasing it into the atmosphere and making life possible for animals."
+    },
+    {
+      "cardIds": ["tree", "carbon-dioxide"],
+      "type": "Absorbs",
+      "title": "Carbon Sequestration",
+      "description": "Trees absorb Carbon Dioxide from the atmosphere, using it for photosynthesis and helping regulate Earth's climate."
+    },
+    {
+      "cardIds": ["mushroom", "decomposer"],
+      "type": "Acts As",
+      "title": "Nature's Recyclers",
+      "description": "Mushrooms act as Decomposers, breaking down dead organic matter and returning nutrients to the soil for new life."
+    },
+    {
+      "cardIds": ["decomposer", "soil"],
+      "type": "Enriches",
+      "title": "Nutrient Cycling",
+      "description": "Decomposers enrich the Soil by breaking down organic matter into nutrients that plants can absorb and use for growth."
+    },
+    {
+      "cardIds": ["bird", "seed"],
+      "type": "Disperses",
+      "title": "Seed Dispersal",
+      "description": "Birds disperse Seeds by eating fruits and depositing them far from the parent plant, helping forests spread and regenerate."
+    },
+    {
+      "cardIds": ["river", "forest"],
+      "type": "Sustains",
+      "title": "Water Source",
+      "description": "Rivers sustain Forests by providing a constant water source, creating riparian ecosystems rich in biodiversity."
+    },
+    {
+      "cardIds": ["forest", "rain"],
+      "type": "Generates",
+      "title": "Atmospheric Moisture",
+      "description": "Forests generate Rain through transpiration, releasing water vapor that forms clouds and creates local rainfall patterns."
+    },
+    {
+      "cardIds": ["seed", "tree"],
+      "type": "Grows Into",
+      "title": "Life Cycle",
+      "description": "Seeds grow into Trees when conditions are right, beginning the cycle of life that can last for hundreds of years."
+    },
+    {
+      "cardIds": ["soil", "tree"],
+      "type": "Anchors",
+      "title": "Root System",
+      "description": "Soil anchors Trees through their root systems, providing stability and a medium for nutrient and water absorption."
+    },
+    {
+      "cardIds": ["predator", "bird"],
+      "type": "Hunts",
+      "title": "Food Chain",
+      "description": "Predators hunt Birds as part of the natural food chain, maintaining population balance in the ecosystem."
+    },
+    {
+      "cardIds": ["flower", "seed"],
+      "type": "Produces",
+      "title": "Reproduction",
+      "description": "Flowers produce Seeds after pollination, ensuring the next generation of plants can spread and colonize new areas."
+    },
+    {
+      "cardIds": ["sun", "rain"],
+      "type": "Creates",
+      "title": "Evaporation Cycle",
+      "description": "The Sun creates Rain by evaporating water from oceans and land, which rises, cools, and falls back to Earth."
+    },
+    {
+      "cardIds": ["bee", "forest"],
+      "type": "Inhabits",
+      "title": "Pollinator Habitat",
+      "description": "Bees inhabit Forests, finding shelter in tree hollows and pollinating countless plant species throughout the woodland."
+    },
+    {
+      "cardIds": ["mushroom", "tree"],
+      "type": "Symbiotic With",
+      "title": "Mycorrhizal Network",
+      "description": "Mushrooms form symbiotic relationships with Trees through underground fungal networks, exchanging nutrients and information."
+    },
+    {
+      "cardIds": ["oxygen", "carbon-dioxide"],
+      "type": "Balances",
+      "title": "Atmospheric Balance",
+      "description": "Oxygen and Carbon Dioxide balance each other in Earth's atmosphere through the respiration and photosynthesis cycles."
+    },
+    {
+      "cardIds": ["river", "soil"],
+      "type": "Deposits",
+      "title": "Sediment Transport",
+      "description": "Rivers deposit nutrient-rich Soil along their banks during floods, creating fertile floodplains for plant growth."
+    },
+    {
+      "cardIds": ["predator", "decomposer"],
+      "type": "Feeds",
+      "title": "Death and Decay",
+      "description": "When Predators die, Decomposers break down their bodies, completing the nutrient cycle and returning energy to the ecosystem."
+    }
+  ]
+}
+

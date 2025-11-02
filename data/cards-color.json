@@ -1,0 +1,237 @@
+{
+  "cards": [
+    {
+      "id": "red-light",
+      "title": "Red Light",
+      "imageUrl": "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "green-light",
+      "title": "Green Light",
+      "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "blue-light",
+      "title": "Blue Light",
+      "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "yellow-light",
+      "title": "Yellow Light",
+      "imageUrl": "https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "cyan-light",
+      "title": "Cyan Light",
+      "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "magenta-light",
+      "title": "Magenta Light",
+      "imageUrl": "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "white-light",
+      "title": "White Light",
+      "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "prism",
+      "title": "Prism",
+      "imageUrl": "https://images.unsplash.com/photo-1553481187-be93c21490a9?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "spectrum",
+      "title": "Spectrum",
+      "imageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "wavelength",
+      "title": "Wavelength",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "rgb-pixel",
+      "title": "RGB Pixel",
+      "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "led",
+      "title": "LED",
+      "imageUrl": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "rainbow",
+      "title": "Rainbow",
+      "imageUrl": "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "laser",
+      "title": "Laser",
+      "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "photon",
+      "title": "Photon",
+      "imageUrl": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["red-light", "green-light"],
+      "type": "Combines Into",
+      "title": "Additive Color Mixing",
+      "description": "Red Light combines with Green Light to create Yellow Light through additive color mixing - the foundation of RGB displays."
+    },
+    {
+      "cardIds": ["red-light", "yellow-light"],
+      "type": "Creates",
+      "title": "Primary to Secondary",
+      "description": "Red Light is a primary component of Yellow Light, which appears when red and green wavelengths combine."
+    },
+    {
+      "cardIds": ["green-light", "yellow-light"],
+      "type": "Creates",
+      "title": "Primary to Secondary",
+      "description": "Green Light is a primary component of Yellow Light, demonstrating how additive color mixing works in light."
+    },
+    {
+      "cardIds": ["green-light", "blue-light"],
+      "type": "Combines Into",
+      "title": "Cyan Formation",
+      "description": "Green Light combines with Blue Light to create Cyan Light, one of the secondary colors in additive mixing."
+    },
+    {
+      "cardIds": ["green-light", "cyan-light"],
+      "type": "Creates",
+      "title": "Primary to Secondary",
+      "description": "Green Light is a primary component of Cyan Light, formed when green and blue wavelengths combine."
+    },
+    {
+      "cardIds": ["blue-light", "cyan-light"],
+      "type": "Creates",
+      "title": "Primary to Secondary",
+      "description": "Blue Light is a primary component of Cyan Light, visible when blue and green wavelengths merge."
+    },
+    {
+      "cardIds": ["red-light", "blue-light"],
+      "type": "Combines Into",
+      "title": "Magenta Formation",
+      "description": "Red Light combines with Blue Light to create Magenta Light, completing the RGB secondary color trio."
+    },
+    {
+      "cardIds": ["red-light", "magenta-light"],
+      "type": "Creates",
+      "title": "Primary to Secondary",
+      "description": "Red Light is a primary component of Magenta Light, formed when red and blue wavelengths combine."
+    },
+    {
+      "cardIds": ["blue-light", "magenta-light"],
+      "type": "Creates",
+      "title": "Primary to Secondary",
+      "description": "Blue Light is a primary component of Magenta Light, visible when blue and red wavelengths merge."
+    },
+    {
+      "cardIds": ["red-light", "green-light"],
+      "type": "Combines With",
+      "title": "RGB Primaries",
+      "description": "Red and Green are two of the three primary colors of light, essential for creating all visible colors."
+    },
+    {
+      "cardIds": ["red-light", "blue-light"],
+      "type": "Combines With",
+      "title": "RGB Primaries",
+      "description": "Red and Blue are two of the three primary colors of light, fundamental to color reproduction."
+    },
+    {
+      "cardIds": ["green-light", "blue-light"],
+      "type": "Combines With",
+      "title": "RGB Primaries",
+      "description": "Green and Blue are two of the three primary colors of light, used in all digital displays."
+    },
+    {
+      "cardIds": ["red-light", "green-light"],
+      "type": "Forms",
+      "title": "RGB Triad",
+      "description": "Red, Green, and Blue together form the RGB color model used in all digital screens and displays."
+    },
+    {
+      "cardIds": ["white-light", "prism"],
+      "type": "Splits Through",
+      "title": "Dispersion",
+      "description": "White Light splits through a Prism into its component colors, revealing the hidden spectrum within."
+    },
+    {
+      "cardIds": ["prism", "spectrum"],
+      "type": "Creates",
+      "title": "Light Separation",
+      "description": "A Prism creates a Spectrum by separating white light into its constituent wavelengths and colors."
+    },
+    {
+      "cardIds": ["white-light", "spectrum"],
+      "type": "Contains",
+      "title": "Full Color Range",
+      "description": "White Light contains the entire Spectrum of visible colors, from red to violet wavelengths."
+    },
+    {
+      "cardIds": ["spectrum", "rainbow"],
+      "type": "Manifests As",
+      "title": "Natural Dispersion",
+      "description": "The Spectrum manifests as a Rainbow when sunlight disperses through water droplets in the atmosphere."
+    },
+    {
+      "cardIds": ["wavelength", "red-light"],
+      "type": "Determines",
+      "title": "Long Wavelength",
+      "description": "Wavelength determines color - Red Light has the longest wavelength in the visible spectrum (~700nm)."
+    },
+    {
+      "cardIds": ["wavelength", "blue-light"],
+      "type": "Determines",
+      "title": "Short Wavelength",
+      "description": "Wavelength determines color - Blue Light has a shorter wavelength in the visible spectrum (~450nm)."
+    },
+    {
+      "cardIds": ["rgb-pixel", "red-light"],
+      "type": "Emits",
+      "title": "Pixel Component",
+      "description": "An RGB Pixel emits Red Light from its red subpixel to create red hues on digital displays."
+    },
+    {
+      "cardIds": ["rgb-pixel", "green-light"],
+      "type": "Emits",
+      "title": "Pixel Component",
+      "description": "An RGB Pixel emits Green Light from its green subpixel, essential for display color reproduction."
+    },
+    {
+      "cardIds": ["rgb-pixel", "blue-light"],
+      "type": "Emits",
+      "title": "Pixel Component",
+      "description": "An RGB Pixel emits Blue Light from its blue subpixel, completing the RGB display technology."
+    },
+    {
+      "cardIds": ["led", "red-light"],
+      "type": "Produces",
+      "title": "LED Emission",
+      "description": "LEDs produce Red Light through electroluminescence, used in displays and lighting."
+    },
+    {
+      "cardIds": ["laser", "red-light"],
+      "type": "Emits",
+      "title": "Coherent Light",
+      "description": "A Laser emits pure Red Light as coherent, monochromatic radiation at a specific wavelength."
+    },
+    {
+      "cardIds": ["photon", "wavelength"],
+      "type": "Carries",
+      "title": "Light Particle",
+      "description": "A Photon carries energy at a specific Wavelength, determining the color of light we perceive."
+    },
+    {
+      "cardIds": ["photon", "red-light"],
+      "type": "Constitutes",
+      "title": "Light Quantum",
+      "description": "Photons constitute Red Light, each carrying energy corresponding to red wavelengths."
+    }
+  ]
+}

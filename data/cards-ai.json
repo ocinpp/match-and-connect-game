@@ -1,0 +1,339 @@
+{
+  "cards": [
+    {
+      "id": "neural-network",
+      "title": "Neural Network",
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "machine-learning",
+      "title": "Machine Learning",
+      "imageUrl": "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "training-data",
+      "title": "Training Data",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "deep-learning",
+      "title": "Deep Learning",
+      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "transformer",
+      "title": "Transformer",
+      "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "llm",
+      "title": "Large Language Model",
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "prompt",
+      "title": "Prompt",
+      "imageUrl": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "embedding",
+      "title": "Embedding",
+      "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "attention-mechanism",
+      "title": "Attention Mechanism",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "backpropagation",
+      "title": "Backpropagation",
+      "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "gradient-descent",
+      "title": "Gradient Descent",
+      "imageUrl": "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "inference",
+      "title": "Inference",
+      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "fine-tuning",
+      "title": "Fine-Tuning",
+      "imageUrl": "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "tokenization",
+      "title": "Tokenization",
+      "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "generative-ai",
+      "title": "Generative AI",
+      "imageUrl": "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["training-data", "machine-learning"],
+      "type": "Trains",
+      "title": "Learning Foundation",
+      "description": "Training Data trains Machine Learning models by providing examples that the algorithm learns patterns from."
+    },
+    {
+      "cardIds": ["machine-learning", "neural-network"],
+      "type": "Implements",
+      "title": "Algorithm Architecture",
+      "description": "Machine Learning implements Neural Networks as one of its most powerful architectures for pattern recognition."
+    },
+    {
+      "cardIds": ["neural-network", "deep-learning"],
+      "type": "Evolves Into",
+      "title": "Depth Expansion",
+      "description": "Neural Networks evolve into Deep Learning when multiple hidden layers are added, enabling hierarchical feature learning."
+    },
+    {
+      "cardIds": ["deep-learning", "transformer"],
+      "type": "Powers",
+      "title": "Modern Architecture",
+      "description": "Deep Learning powers Transformers, the revolutionary architecture that uses self-attention to process sequential data."
+    },
+    {
+      "cardIds": ["transformer", "llm"],
+      "type": "Enables",
+      "title": "Language Understanding",
+      "description": "Transformer architecture enables Large Language Models to understand and generate human-like text at scale."
+    },
+    {
+      "cardIds": ["llm", "prompt"],
+      "type": "Responds To",
+      "title": "User Interaction",
+      "description": "Large Language Models respond to Prompts, interpreting user instructions to generate relevant and contextual outputs."
+    },
+    {
+      "cardIds": ["prompt", "generative-ai"],
+      "type": "Guides",
+      "title": "Creative Direction",
+      "description": "Prompts guide Generative AI to create specific content, from text and images to code and music."
+    },
+    {
+      "cardIds": ["training-data", "embedding"],
+      "type": "Converts To",
+      "title": "Vector Representation",
+      "description": "Training Data converts to Embeddings, transforming words and concepts into numerical vectors that capture semantic meaning."
+    },
+    {
+      "cardIds": ["embedding", "attention-mechanism"],
+      "type": "Processed By",
+      "title": "Context Weighting",
+      "description": "Embeddings are processed by Attention Mechanisms, which weigh the importance of different parts of the input."
+    },
+    {
+      "cardIds": ["attention-mechanism", "transformer"],
+      "type": "Core Of",
+      "title": "Self-Attention",
+      "description": "Attention Mechanism is the core of Transformers, allowing the model to focus on relevant parts of the input sequence."
+    },
+    {
+      "cardIds": ["backpropagation", "neural-network"],
+      "type": "Trains",
+      "title": "Error Correction",
+      "description": "Backpropagation trains Neural Networks by propagating errors backward through layers to adjust weights."
+    },
+    {
+      "cardIds": ["gradient-descent", "backpropagation"],
+      "type": "Optimizes",
+      "title": "Weight Update",
+      "description": "Gradient Descent optimizes Backpropagation by determining how much to adjust each weight to minimize error."
+    },
+    {
+      "cardIds": ["training-data", "fine-tuning"],
+      "type": "Enables",
+      "title": "Specialization",
+      "description": "Training Data enables Fine-Tuning, allowing pre-trained models to specialize on specific tasks or domains."
+    },
+    {
+      "cardIds": ["fine-tuning", "llm"],
+      "type": "Customizes",
+      "title": "Domain Adaptation",
+      "description": "Fine-Tuning customizes Large Language Models for specific use cases, improving performance on targeted tasks."
+    },
+    {
+      "cardIds": ["llm", "inference"],
+      "type": "Performs",
+      "title": "Prediction Phase",
+      "description": "Large Language Models perform Inference when generating responses, using learned patterns without further training."
+    },
+    {
+      "cardIds": ["tokenization", "prompt"],
+      "type": "Processes",
+      "title": "Text Encoding",
+      "description": "Tokenization processes Prompts by breaking text into smaller units that the model can understand and process."
+    },
+    {
+      "cardIds": ["tokenization", "embedding"],
+      "type": "Converts To",
+      "title": "Token Vectors",
+      "description": "Tokenization converts to Embeddings by mapping each token to its corresponding vector representation."
+    },
+    {
+      "cardIds": ["neural-network", "inference"],
+      "type": "Executes",
+      "title": "Forward Pass",
+      "description": "Neural Networks execute Inference through a forward pass, computing outputs from inputs without updating weights."
+    },
+    {
+      "cardIds": ["generative-ai", "transformer"],
+      "type": "Built On",
+      "title": "Foundation Architecture",
+      "description": "Generative AI is built on Transformer architecture, leveraging its ability to model complex patterns and relationships."
+    },
+    {
+      "cardIds": ["deep-learning", "gradient-descent"],
+      "type": "Optimized By",
+      "title": "Learning Algorithm",
+      "description": "Deep Learning is optimized by Gradient Descent, which navigates the high-dimensional parameter space to find optimal weights."
+    },
+    {
+      "cardIds": ["machine-learning", "inference"],
+      "type": "Deploys Via",
+      "title": "Production Use",
+      "description": "Machine Learning deploys via Inference, applying trained models to new data in real-world applications."
+    },
+    {
+      "cardIds": ["attention-mechanism", "llm"],
+      "type": "Enables",
+      "title": "Context Understanding",
+      "description": "Attention Mechanism enables Large Language Models to understand context by weighing relationships between all words in a sequence."
+    },
+    {
+      "cardIds": ["embedding", "neural-network"],
+      "type": "Feeds Into",
+      "title": "Input Layer",
+      "description": "Embeddings feed into Neural Networks as dense vector inputs, providing rich semantic representations for processing."
+    },
+    {
+      "cardIds": ["generative-ai", "prompt"],
+      "type": "Controlled By",
+      "title": "Generation Control",
+      "description": "Generative AI is controlled by Prompts, which steer the creative process toward desired outputs and styles."
+    },
+    {
+      "cardIds": ["llm", "generative-ai"],
+      "type": "Type Of",
+      "title": "AI Category",
+      "description": "Large Language Models are a type of Generative AI, specialized in creating human-like text, code, and conversational responses."
+    },
+    {
+      "cardIds": ["training-data", "backpropagation"],
+      "type": "Uses",
+      "title": "Learning Process",
+      "description": "Training Data is used during Backpropagation to calculate errors and update model weights through iterative learning."
+    },
+    {
+      "cardIds": ["training-data", "gradient-descent"],
+      "type": "Guides",
+      "title": "Optimization Direction",
+      "description": "Training Data guides Gradient Descent by providing the loss signal that determines which direction to adjust weights."
+    },
+    {
+      "cardIds": ["tokenization", "llm"],
+      "type": "Preprocesses For",
+      "title": "Text Input",
+      "description": "Tokenization preprocesses text for Large Language Models by breaking it into manageable units the model can process."
+    },
+    {
+      "cardIds": ["tokenization", "transformer"],
+      "type": "Feeds Into",
+      "title": "Input Processing",
+      "description": "Tokenization feeds into Transformers by converting text into token sequences that the model can understand."
+    },
+    {
+      "cardIds": ["fine-tuning", "generative-ai"],
+      "type": "Specializes",
+      "title": "Task Adaptation",
+      "description": "Fine-Tuning specializes Generative AI models for specific tasks, improving their performance on targeted use cases."
+    },
+    {
+      "cardIds": ["fine-tuning", "training-data"],
+      "type": "Requires",
+      "title": "Domain Data",
+      "description": "Fine-Tuning requires Training Data from the target domain to adapt the model to specific tasks."
+    },
+    {
+      "cardIds": ["inference", "generative-ai"],
+      "type": "Executes",
+      "title": "Generation Phase",
+      "description": "Inference executes Generative AI's creative process, producing outputs without updating model weights."
+    },
+    {
+      "cardIds": ["inference", "prompt"],
+      "type": "Processes",
+      "title": "Input Handling",
+      "description": "Inference processes Prompts to generate responses, applying the trained model to new inputs."
+    },
+    {
+      "cardIds": ["deep-learning", "backpropagation"],
+      "type": "Relies On",
+      "title": "Training Method",
+      "description": "Deep Learning relies on Backpropagation to train multi-layer networks by propagating errors through all layers."
+    },
+    {
+      "cardIds": ["deep-learning", "embedding"],
+      "type": "Uses",
+      "title": "Representation Learning",
+      "description": "Deep Learning uses Embeddings to learn rich representations of data in continuous vector spaces."
+    },
+    {
+      "cardIds": ["attention-mechanism", "embedding"],
+      "type": "Weighs",
+      "title": "Context Scoring",
+      "description": "Attention Mechanism weighs Embeddings to determine which parts of the input are most relevant for the current task."
+    },
+    {
+      "cardIds": ["generative-ai", "inference"],
+      "type": "Operates Via",
+      "title": "Production Mode",
+      "description": "Generative AI operates via Inference when creating new content, using learned patterns without further training."
+    },
+    {
+      "cardIds": ["generative-ai", "embedding"],
+      "type": "Leverages",
+      "title": "Semantic Space",
+      "description": "Generative AI leverages Embeddings to understand and manipulate concepts in semantic space for creative generation."
+    },
+    {
+      "cardIds": ["machine-learning", "training-data"],
+      "type": "Learns From",
+      "title": "Data Foundation",
+      "description": "Machine Learning learns from Training Data by identifying patterns and relationships in the examples provided."
+    },
+    {
+      "cardIds": ["machine-learning", "gradient-descent"],
+      "type": "Optimizes With",
+      "title": "Parameter Tuning",
+      "description": "Machine Learning optimizes with Gradient Descent to find the best model parameters that minimize error."
+    },
+    {
+      "cardIds": ["transformer", "embedding"],
+      "type": "Processes",
+      "title": "Vector Input",
+      "description": "Transformer processes Embeddings as its primary input, applying attention mechanisms to these vector representations."
+    },
+    {
+      "cardIds": ["neural-network", "gradient-descent"],
+      "type": "Trained By",
+      "title": "Weight Optimization",
+      "description": "Neural Networks are trained by Gradient Descent, which adjusts weights to minimize the loss function."
+    },
+    {
+      "cardIds": ["neural-network", "training-data"],
+      "type": "Learns From",
+      "title": "Pattern Recognition",
+      "description": "Neural Networks learn from Training Data by adjusting internal weights to recognize patterns and make predictions."
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "cards": [
+    {
+      "id": "zeus",
+      "title": "Zeus",
+      "imageUrl": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "thor",
+      "title": "Thor",
+      "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "phoenix",
+      "title": "Phoenix",
+      "imageUrl": "https://images.unsplash.com/photo-1574169208507-84376144848b?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "dragon",
+      "title": "Dragon",
+      "imageUrl": "https://images.unsplash.com/photo-1578926078164-61a39d3c3b57?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "lightning-bolt",
+      "title": "Lightning Bolt",
+      "imageUrl": "https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "mjolnir",
+      "title": "Mjolnir",
+      "imageUrl": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "medusa",
+      "title": "Medusa",
+      "imageUrl": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "kraken",
+      "title": "Kraken",
+      "imageUrl": "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "valkyrie",
+      "title": "Valkyrie",
+      "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "excalibur",
+      "title": "Excalibur",
+      "imageUrl": "https://images.unsplash.com/photo-1598495496118-d8e5c7e5e4b5?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "athena",
+      "title": "Athena",
+      "imageUrl": "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "anubis",
+      "title": "Anubis",
+      "imageUrl": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "eternal-flame",
+      "title": "Eternal Flame",
+      "imageUrl": "https://images.unsplash.com/photo-1553481187-be93c21490a9?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "underworld",
+      "title": "Underworld",
+      "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "olympus",
+      "title": "Mount Olympus",
+      "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["zeus", "lightning-bolt"],
+      "type": "Wields",
+      "title": "Divine Thunder",
+      "description": "Zeus commands the Lightning Bolt, his signature weapon that strikes down mortals and immortals alike with the fury of the heavens."
+    },
+    {
+      "cardIds": ["thor", "mjolnir"],
+      "type": "Wields",
+      "title": "Hammer of Thunder",
+      "description": "Thor's mighty hammer Mjolnir can only be lifted by those worthy, and returns to his hand after every throw, channeling the power of storms."
+    },
+    {
+      "cardIds": ["phoenix", "eternal-flame"],
+      "type": "Reborn From",
+      "title": "Cycle of Rebirth",
+      "description": "The Phoenix rises from the Eternal Flame, reborn from its own ashes in an endless cycle of death and resurrection."
+    },
+    {
+      "cardIds": ["dragon", "eternal-flame"],
+      "type": "Breathes",
+      "title": "Dragon's Breath",
+      "description": "Dragons breathe the Eternal Flame, an ancient fire that burns hotter than any mortal flame and can melt the strongest metals."
+    },
+    {
+      "cardIds": ["medusa", "athena"],
+      "type": "Cursed By",
+      "title": "Divine Punishment",
+      "description": "Athena cursed Medusa, transforming her beautiful hair into serpents and giving her the power to turn anyone who meets her gaze to stone."
+    },
+    {
+      "cardIds": ["zeus", "olympus"],
+      "type": "Rules From",
+      "title": "King of Gods",
+      "description": "Zeus rules all gods from his throne atop Mount Olympus, the highest peak where mortals cannot reach and gods hold their councils."
+    },
+    {
+      "cardIds": ["valkyrie", "thor"],
+      "type": "Serves",
+      "title": "Shield Maidens",
+      "description": "The Valkyries serve the Norse gods, choosing which warriors will die in battle and escorting the worthy to Valhalla."
+    },
+    {
+      "cardIds": ["excalibur", "athena"],
+      "type": "Blessed By",
+      "title": "Divine Craftsmanship",
+      "description": "Excalibur was blessed by Athena, goddess of wisdom and warfare, granting it unbreakable strength and the ability to cut through any armor."
+    },
+    {
+      "cardIds": ["kraken", "underworld"],
+      "type": "Emerges From",
+      "title": "Deep Terror",
+      "description": "The Kraken emerges from the darkest depths of the Underworld's oceans, a monstrous beast that drags ships to their doom."
+    },
+    {
+      "cardIds": ["anubis", "underworld"],
+      "type": "Guards",
+      "title": "Guardian of the Dead",
+      "description": "Anubis guards the Underworld, weighing the hearts of the deceased against the feather of truth to determine their eternal fate."
+    },
+    {
+      "cardIds": ["phoenix", "dragon"],
+      "type": "Rivals",
+      "title": "Fire and Rebirth",
+      "description": "The Phoenix and Dragon are eternal rivals, both masters of flame but representing opposing forces of destruction and renewal."
+    },
+    {
+      "cardIds": ["lightning-bolt", "mjolnir"],
+      "type": "Channels",
+      "title": "Storm Weapons",
+      "description": "Both the Lightning Bolt and Mjolnir channel the raw power of storms, though one strikes from the sky while the other is hurled by hand."
+    },
+    {
+      "cardIds": ["zeus", "athena"],
+      "type": "Father Of",
+      "title": "Divine Lineage",
+      "description": "Zeus is the father of Athena, who sprang fully formed from his head, inheriting his wisdom and becoming goddess of strategic warfare."
+    },
+    {
+      "cardIds": ["valkyrie", "olympus"],
+      "type": "Opposes",
+      "title": "Norse vs Greek",
+      "description": "The Valkyries of Norse mythology stand in contrast to the gods of Olympus, representing different cultural interpretations of divine power."
+    },
+    {
+      "cardIds": ["medusa", "underworld"],
+      "type": "Banished To",
+      "title": "Eternal Exile",
+      "description": "Medusa was banished to the edges of the Underworld, dwelling in darkness where her cursed gaze could harm no innocent souls."
+    },
+    {
+      "cardIds": ["dragon", "excalibur"],
+      "type": "Slain By",
+      "title": "Dragon Slayer",
+      "description": "Excalibur has slain countless dragons, its divine edge capable of piercing even the thickest dragon scales."
+    },
+    {
+      "cardIds": ["eternal-flame", "olympus"],
+      "type": "Burns In",
+      "title": "Sacred Fire",
+      "description": "The Eternal Flame burns perpetually in the temples of Mount Olympus, a symbol of the gods' immortal power."
+    },
+    {
+      "cardIds": ["thor", "zeus"],
+      "type": "Parallels",
+      "title": "Thunder Gods",
+      "description": "Thor and Zeus are parallel deities from different pantheons, both commanding thunder and lightning as kings of their respective realms."
+    },
+    {
+      "cardIds": ["anubis", "athena"],
+      "type": "Respects",
+      "title": "Divine Wisdom",
+      "description": "Anubis and Athena share a mutual respect as deities of wisdom and judgment, though they serve different pantheons and purposes."
+    },
+    {
+      "cardIds": ["kraken", "dragon"],
+      "type": "Battles",
+      "title": "Titans of Destruction",
+      "description": "When the Kraken and Dragon meet, their battle shakes the earth and sea, two unstoppable forces of nature clashing in epic combat."
+    }
+  ]
+}
