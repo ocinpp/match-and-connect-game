@@ -1,67 +1,22 @@
 import { ref, onMounted } from "vue";
 
-const ONBOARDING_KEY = "match-and-connect-onboarding-seen";
-const ONBOARDING_VERSION = "v1"; // Increment to re-show tutorial after updates
-
 export const useOnboarding = () => {
   const showOnboarding = ref(false);
 
   /**
-   * Check if user has seen the onboarding
-   */
-  const hasSeenOnboarding = (): boolean => {
-    if (typeof window === "undefined") return true;
-
-    try {
-      const seen = localStorage.getItem(ONBOARDING_KEY);
-      return seen === ONBOARDING_VERSION;
-    } catch (error) {
-      console.warn("Failed to read onboarding status from localStorage:", error);
-      return false;
-    }
-  };
-
-  /**
-   * Mark onboarding as seen
-   */
-  const markOnboardingAsSeen = () => {
-    if (typeof window === "undefined") return;
-
-    try {
-      localStorage.setItem(ONBOARDING_KEY, ONBOARDING_VERSION);
-    } catch (error) {
-      console.warn("Failed to save onboarding status to localStorage:", error);
-    }
-  };
-
-  /**
-   * Reset onboarding (for testing or user request)
-   */
-  const resetOnboarding = () => {
-    if (typeof window === "undefined") return;
-
-    try {
-      localStorage.removeItem(ONBOARDING_KEY);
-    } catch (error) {
-      console.warn("Failed to reset onboarding status:", error);
-    }
-  };
-
-  /**
-   * Initialize onboarding - check if should show
+   * Initialize onboarding - always show on every page load
    */
   const initOnboarding = () => {
-    if (!hasSeenOnboarding()) {
-      showOnboarding.value = true;
-    }
+    // Always show onboarding on every page load/refresh
+    showOnboarding.value = true;
   };
 
   /**
-   * Close onboarding and mark as seen
+   * Close onboarding (no longer marks as seen since we always show)
    */
   const closeOnboarding = () => {
     showOnboarding.value = false;
-    markOnboardingAsSeen();
+    // Removed: markOnboardingAsSeen() - we want to show every time
   };
 
   /**
@@ -80,8 +35,6 @@ export const useOnboarding = () => {
     showOnboarding,
     closeOnboarding,
     openOnboarding,
-    resetOnboarding,
-    hasSeenOnboarding,
   };
 };
 
