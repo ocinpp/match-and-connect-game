@@ -17,8 +17,9 @@ export const GAME_CONFIG = {
    * - 'architecture': Architecture & Cities
    * - 'color': Color Theory (Light & RGB)
    * - 'photography': Photography Techniques
+   * - 'mini': Mini Sci-Fi (4 cards, 3 connections - for testing)
    */
-  THEME: 'ai' as 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai',
+  THEME: 'scifi' as 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai' | 'mini',
 
   // ===== Interaction Settings =====
 
