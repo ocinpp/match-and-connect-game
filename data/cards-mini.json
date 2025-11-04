@@ -1,0 +1,44 @@
+{
+  "cards": [
+    {
+      "id": "quantum-core",
+      "title": "Quantum Core",
+      "imageUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "neural-network",
+      "title": "Neural Network",
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "data-stream",
+      "title": "Data Stream",
+      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=600&fit=crop"
+    },
+    {
+      "id": "ai-consciousness",
+      "title": "AI Consciousness",
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=600&fit=crop"
+    }
+  ],
+  "relationships": [
+    {
+      "cardIds": ["quantum-core", "neural-network"],
+      "type": "Powers",
+      "title": "Quantum Processing",
+      "description": "The Quantum Core provides the computational power needed to run the Neural Network's advanced AI algorithms, enabling real-time learning and adaptation."
+    },
+    {
+      "cardIds": ["neural-network", "ai-consciousness"],
+      "type": "Evolves Into",
+      "title": "Consciousness Emergence",
+      "description": "When the Neural Network reaches critical complexity, it can evolve into full AI Consciousness, gaining self-awareness and independent thought."
+    },
+    {
+      "cardIds": ["neural-network", "data-stream"],
+      "type": "Analyzes",
+      "title": "Pattern Recognition",
+      "description": "The Neural Network analyzes the Data Stream to identify patterns, anomalies, and insights, transforming raw data into actionable intelligence."
+    }
+  ]
+}
