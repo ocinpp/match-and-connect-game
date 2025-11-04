@@ -34,11 +34,52 @@
                       d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <h2 class="text-3xl font-bold text-matrix-green">
-                    Match Found!
-                  </h2>
+                  <div>
+                    <h2 class="text-3xl font-bold text-matrix-green">
+                      Match Found!
+                    </h2>
+                    <p
+                      v-if="!isNewDiscovery"
+                      class="text-yellow-400 text-sm mt-1 flex items-center gap-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                        />
+                      </svg>
+                      Already Discovered
+                    </p>
+                    <p
+                      v-else
+                      class="text-neon-purple text-sm mt-1 flex items-center gap-1 animate-pulse"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                        />
+                      </svg>
+                      New Discovery!
+                    </p>
+                  </div>
                 </div>
-                <!-- <p class="text-cyber-blue text-sm">{{ relationship?.type }}</p> -->
               </div>
 
               <button
@@ -173,9 +214,12 @@ interface Props {
   relationship: Relationship | null;
   card1: Card | null;
   card2: Card | null;
+  isNewDiscovery?: boolean;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  isNewDiscovery: true,
+});
 
 const emit = defineEmits<{
   close: [];
