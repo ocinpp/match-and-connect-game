@@ -18,6 +18,7 @@ export const useTheme = () => {
     'color': 'Color Theory',
     'photography': 'Photography',
     'ai': 'Artificial Intelligence',
+    'mini': 'Mini (Testing)',
   } as const
 
   const currentThemeName = computed(() => themeNames[GAME_CONFIG.THEME])
