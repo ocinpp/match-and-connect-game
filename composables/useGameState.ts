@@ -12,6 +12,7 @@ import architectureData from '~/data/cards-architecture.json'
 import colorData from '~/data/cards-color.json'
 import photographyData from '~/data/cards-photography.json'
 import aiData from '~/data/cards-ai.json'
+import miniData from '~/data/cards-mini.json'
 
 // Theme data map
 const THEME_DATA = {
@@ -25,6 +26,7 @@ const THEME_DATA = {
   'color': colorData,
   'photography': photographyData,
   'ai': aiData,
+  'mini': miniData,
 } as const
 
 // Get active theme data
@@ -59,6 +61,15 @@ export const useGameState = () => {
   // Slot states
   const slot1 = ref<Card | null>(null)
   const slot2 = ref<Card | null>(null)
+
+  // Match tracking - store discovered relationship IDs
+  const discoveredRelationships = ref<Set<string>>(new Set())
+
+  // Timer state
+  const timerStartTime = ref<number | null>(null)
+  const timerElapsed = ref<number>(0)
+  const timerInterval = ref<number | null>(null)
+  const isTimerRunning = ref<boolean>(false)
 
   // Disabled cards (cards currently in slots)
   const disabledCardIds = computed(() => {
@@ -122,6 +133,95 @@ export const useGameState = () => {
     return findRelationship(slot1.value.id, slot2.value.id)
   }
 
+  // Generate unique ID for a relationship (sorted card IDs)
+  const getRelationshipId = (card1Id: string, card2Id: string): string => {
+    return [card1Id, card2Id].sort().join('-')
+  }
+
+  // Record a discovered match
+  const recordMatch = (relationship: Relationship): boolean => {
+    const relId = getRelationshipId(relationship.cardIds[0]!, relationship.cardIds[1]!)
+
+    // Check if already discovered
+    if (discoveredRelationships.value.has(relId)) {
+      return false // Already discovered
+    }
+
+    // Add to discovered set
+    discoveredRelationships.value.add(relId)
+    return true // Newly discovered
+  }
+
+  // Check if a relationship has been discovered
+  const isRelationshipDiscovered = (card1Id: string, card2Id: string): boolean => {
+    const relId = getRelationshipId(card1Id, card2Id)
+    return discoveredRelationships.value.has(relId)
+  }
+
+  // Get match statistics
+  const totalMatches = computed(() => relationships.value.length)
+  const matchesFound = computed(() => discoveredRelationships.value.size)
+  const matchProgress = computed(() => {
+    if (totalMatches.value === 0) return 0
+    return Math.round((matchesFound.value / totalMatches.value) * 100)
+  })
+  const isGameComplete = computed(() => matchesFound.value === totalMatches.value)
+
+  // Timer methods
+  const startTimer = () => {
+    if (isTimerRunning.value) return
+
+    timerStartTime.value = Date.now() - timerElapsed.value
+    isTimerRunning.value = true
+
+    timerInterval.value = window.setInterval(() => {
+      if (timerStartTime.value) {
+        timerElapsed.value = Date.now() - timerStartTime.value
+      }
+    }, 10) // Update every 10ms for millisecond precision
+  }
+
+  const stopTimer = () => {
+    if (timerInterval.value) {
+      clearInterval(timerInterval.value)
+      timerInterval.value = null
+    }
+    isTimerRunning.value = false
+  }
+
+  const resetTimer = () => {
+    stopTimer()
+    timerStartTime.value = null
+    timerElapsed.value = 0
+  }
+
+  const pauseTimer = () => {
+    stopTimer()
+  }
+
+  const resumeTimer = () => {
+    startTimer()
+  }
+
+  // Format timer for display (MM:SS.mmm)
+  const formattedTime = computed(() => {
+    const totalMs = timerElapsed.value
+    const minutes = Math.floor(totalMs / 60000)
+    const seconds = Math.floor((totalMs % 60000) / 1000)
+    const milliseconds = totalMs % 1000
+
+    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(milliseconds).padStart(3, '0')}`
+  })
+
+  // Reset game state
+  const resetGame = () => {
+    slot1.value = null
+    slot2.value = null
+    discoveredRelationships.value.clear()
+    resetTimer()
+    cardDistribution.value = distributeCards()
+  }
+
   // Distribute cards randomly across two rows
   const distributeCards = () => {
     const shuffled = [...allCards.value].sort(() => Math.random() - 0.5)
@@ -162,6 +262,28 @@ export const useGameState = () => {
     removeCardFromSlot,
     checkMatch,
     findRelationship,
+
+    // Match tracking
+    recordMatch,
+    isRelationshipDiscovered,
+    totalMatches,
+    matchesFound,
+    matchProgress,
+    isGameComplete,
+    discoveredRelationships,
+
+    // Timer
+    startTimer,
+    stopTimer,
+    resetTimer,
+    pauseTimer,
+    resumeTimer,
+    formattedTime,
+    timerElapsed,
+    isTimerRunning,
+
+    // Game control
+    resetGame,
   }
 }
 
