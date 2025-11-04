@@ -40,7 +40,13 @@
     </div>
 
     <!-- Card in Slot -->
-    <div v-else class="absolute inset-0 cursor-pointer group" @click.stop>
+    <div
+      v-else
+      class="absolute inset-0 cursor-pointer group"
+      @click.stop
+      @touchstart="handleCardTouch"
+      @touchend="handleCardTouchEnd"
+    >
       <!-- Card Image -->
       <div class="absolute inset-0">
         <img
@@ -65,7 +71,14 @@
 
       <!-- Remove Button -->
       <button
-        class="absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/80 hover:bg-red-500 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
+        :class="[
+          'absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/80 hover:bg-red-500 active:bg-red-600 flex items-center justify-center transition-all duration-200 z-10',
+          isMobile
+            ? isCardTouched
+              ? 'opacity-100'
+              : 'opacity-0 pointer-events-none'
+            : 'opacity-0 group-hover:opacity-100',
+        ]"
         @click.stop="handleRemove"
       >
         <svg
@@ -127,6 +140,7 @@ const isMobile = ref(false);
 // ===== NEW STATE - MOBILE TOUCH DRAG =====
 const isTouchOver = ref(false);
 const slotElement = ref<HTMLElement | null>(null);
+const isCardTouched = ref(false); // Track if card in slot is being touched
 
 // Detect if device is mobile
 onMounted(() => {
@@ -246,6 +260,20 @@ const handleClick = () => {
   if (!props.card) {
     emit("slotClicked", props.slotIndex);
   }
+};
+
+// Mobile touch handlers for showing remove button
+const handleCardTouch = () => {
+  if (isMobile.value && props.card) {
+    isCardTouched.value = true;
+  }
+};
+
+const handleCardTouchEnd = () => {
+  // Keep the button visible for a short time after touch ends
+  setTimeout(() => {
+    isCardTouched.value = false;
+  }, 2000); // Hide after 2 seconds
 };
 </script>
 
