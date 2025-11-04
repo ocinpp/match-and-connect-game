@@ -1,6 +1,6 @@
-# Match and Connect - Card Connection Game
+# Drop and Match - Card Connection Game
 
-A stylish card matching game built with Nuxt 4 and Tailwind CSS v4, featuring **10 unique themes** including a comprehensive **AI/Machine Learning theme** with 43 relationships. Interactive drag-and-drop gameplay with advanced mobile touch interactions.
+A stylish card matching game built with Nuxt 4 and Tailwind CSS v4, featuring **11 unique themes** including a comprehensive **AI/Machine Learning theme** with 43 relationships. Interactive drag-and-drop gameplay with advanced mobile touch interactions.
 
 ## 🤖 Featured: AI Theme
 
@@ -35,9 +35,9 @@ Perfect for AI enthusiasts, ML students, and anyone interested in understanding 
 - **Touch Callout Disabled**: No iOS callout menu interference
 
 ### User Experience
-- **Onboarding Modal**: First-time tutorial with localStorage tracking (shows once)
-- **Responsive Design**: Optimized for mobile (< 1024px) and desktop
-- **10 Unique Themes**: Choose from Sci-Fi, Mythology, AI, Space, Anime, and more
+- **Onboarding Modal**: Interactive 2-page tutorial with smooth slide transitions and localStorage tracking
+- **Responsive Design**: Optimized for mobile (< 1024px) and desktop with vertically centered content
+- **11 Unique Themes**: Choose from Sci-Fi, Mythology, AI, Space, Anime, Mini, and more
 - **Cyber/Futuristic Theme**: Stylish design with neon purple, cyber blue, and matrix green colors
 - **Dynamic Viewport Height**: Uses `dvh` units for better mobile browser compatibility
 
@@ -55,7 +55,7 @@ The game uses a centralized configuration system in `config/gameConfig.ts`:
 
 ```typescript
 export const GAME_CONFIG = {
-  THEME: 'ai',                      // 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai'
+  THEME: 'scifi',                   // 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai' | 'mini'
   MOBILE_INTERACTION_MODE: 'both',  // 'drag' | 'tap' | 'both'
   LONG_PRESS_DURATION: 600,         // ms to activate drag
   PROGRESS_RING_DELAY: 150,         // ms before showing progress ring
@@ -149,7 +149,8 @@ drop-and-match/
 │   ├── cards-architecture.json # Architecture theme data
 │   ├── cards-color.json       # Color Theory theme data
 │   ├── cards-photography.json # Photography theme data
-│   └── cards-ai.json          # AI theme data (43 relationships!)
+│   ├── cards-ai.json          # AI theme data (43 relationships!)
+│   └── cards-mini.json        # Mini Sci-Fi theme (4 cards, 3 connections - for testing)
 ├── docs/                      # Comprehensive documentation
 │   ├── INDEX.md               # Documentation index
 │   ├── QUICK_START_THEMES.md  # Quick theme switching guide
@@ -166,10 +167,10 @@ drop-and-match/
 
 ### Switching Themes
 
-The game includes **10 unique themes**. To switch themes, edit `config/gameConfig.ts`:
+The game includes **11 unique themes**. To switch themes, edit `config/gameConfig.ts`:
 
 ```typescript
-THEME: 'ai'  // Options: 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai'
+THEME: 'scifi'  // Options: 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | 'space' | 'anime' | 'architecture' | 'color' | 'photography' | 'ai' | 'mini'
 ```
 
 **Available Themes:**
@@ -183,6 +184,7 @@ THEME: 'ai'  // Options: 'scifi' | 'mythology' | 'ecosystem' | 'fantasy-rpg' | '
 8. `'color'` - **Color Theory** - Red Light, Green Light, Blue Light, RGB Pixel (26 relationships)
 9. `'photography'` - **Photography** - Aperture, Bokeh, Shutter Speed, ISO (24 relationships)
 10. `'ai'` - **Artificial Intelligence** 🤖 - Neural Network, LLM, Transformer, Generative AI (**43 relationships** - Most comprehensive!)
+11. `'mini'` - **Mini Sci-Fi** 🧪 - Compact testing theme with 4 cards and 3 connections (perfect for development/testing)
 
 📚 **Documentation:** See the [docs/](./docs/) folder for comprehensive theme guides:
 - [Quick Start Guide](./docs/QUICK_START_THEMES.md) - Switch themes in 30 seconds
