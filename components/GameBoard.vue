@@ -1,22 +1,18 @@
 <template>
   <div
-    class="game-board min-h-dvh bg-dark-bg text-white p-4 md:p-6 lg:p-8"
+    class="game-board min-h-dvh bg-dark-bg text-white"
     @contextmenu="handleContextMenu"
   >
-    <!-- Header -->
-    <header class="text-center mb-4 md:mb-6">
-      <h1
-        class="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 bg-gradient-to-r from-cyber-blue via-neon-purple to-matrix-green bg-clip-text text-transparent"
-      >
-        Match and Connect
-      </h1>
-      <p class="text-gray-400 text-sm md:text-base lg:text-lg">
-        Drag cards to slots to discover their connections
-      </p>
-    </header>
+    <!-- Stats Header -->
+    <StatsHeader
+      :formatted-time="formattedTime"
+      :matches-found="matchesFound"
+      :total-matches="totalMatches"
+      :match-progress="matchProgress"
+    />
 
     <!-- Main Game Area - Horizontal Layout -->
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-4 md:pt-6">
       <!-- Desktop: Side by side layout, Mobile: Stacked -->
       <div class="flex flex-col lg:flex-row gap-4 md:gap-6">
         <!-- Left Side: Card Rows -->
@@ -259,6 +255,7 @@
       :relationship="currentRelationship"
       :card1="orderedCard1"
       :card2="orderedCard2"
+      :is-new-discovery="isNewDiscovery"
       @close="handleModalClose"
     />
 
@@ -267,6 +264,25 @@
       v-if="toastMessage"
       ref="toastRef"
       :message="toastMessage"
+    />
+
+    <!-- Completion Modal -->
+    <CompletionModal
+      :is-open="isCompletionModalOpen"
+      :formatted-time="formattedTime"
+      :total-matches="totalMatches"
+      @close="handleCompletionClose"
+      @play-again="handlePlayAgain"
+    />
+
+    <!-- Connections Gallery -->
+    <ConnectionsGallery
+      :is-open="isGalleryOpen"
+      :relationships="relationships"
+      :cards="allCards"
+      :discovered-relationship-ids="discoveredRelationships"
+      @close="handleGalleryClose"
+      @play-again="handlePlayAgain"
     />
 
     <!-- Mobile Drag Ghost - Floating card that follows finger -->
@@ -330,6 +346,20 @@ const {
   placeCardInSlot,
   removeCardFromSlot,
   checkMatch,
+  recordMatch,
+  isRelationshipDiscovered,
+  totalMatches,
+  matchesFound,
+  matchProgress,
+  isGameComplete,
+  startTimer,
+  stopTimer,
+  formattedTime,
+  isTimerRunning,
+  resetGame,
+  discoveredRelationships,
+  allCards,
+  relationships,
 } = useGameState();
 
 // Onboarding
@@ -339,7 +369,10 @@ const { showOnboarding, closeOnboarding } = useOnboarding();
 const selectedCard = ref<Card | null>(null);
 const isModalOpen = ref(false);
 const isCheckMatchModalOpen = ref(false);
+const isCompletionModalOpen = ref(false);
+const isGalleryOpen = ref(false);
 const currentRelationship = ref<Relationship | null>(null);
+const isNewDiscovery = ref(false); // Track if current match is newly discovered
 const shouldShakeSlots = ref(false);
 const toastMessage = ref("");
 const toastRef = ref<InstanceType<typeof ToastNotification> | null>(null);
@@ -400,9 +433,17 @@ watch(
   }
 );
 
+// Helper function to start timer on first interaction
+const startTimerOnFirstInteraction = () => {
+  if (!isTimerRunning.value && matchesFound.value === 0) {
+    startTimer();
+  }
+};
+
 // Drag and Drop Handlers
 const handleDragStart = (card: Card) => {
   selectedCard.value = card;
+  startTimerOnFirstInteraction();
 };
 
 // Card Click Handler (for tap-to-select on mobile)
@@ -410,6 +451,9 @@ const handleCardClick = (card: Card) => {
   if (isCardDisabled(card.id)) {
     return;
   }
+
+  // Start timer on first card interaction
+  startTimerOnFirstInteraction();
 
   // If no card selected, select this card
   if (!selectedCard.value) {
@@ -487,6 +531,7 @@ const handleCardTouchDragStart = (
   activeDragCard.value = card;
   touchPosition.value = { x: touchX, y: touchY };
   showDragGhost.value = true;
+  startTimerOnFirstInteraction();
 };
 
 /**
@@ -560,9 +605,15 @@ const handleCheckMatch = async () => {
   const relationship = checkMatch();
 
   if (relationship) {
-    // Match found!
+    // Match found! Record it and check if it's new
+    isNewDiscovery.value = recordMatch(relationship);
     currentRelationship.value = relationship;
     isModalOpen.value = true;
+
+    // Stop timer if game is complete
+    if (isGameComplete.value) {
+      stopTimer();
+    }
   } else {
     // No match - show toast and shake slots
     toastMessage.value = "No connection found between these cards!";
@@ -595,6 +646,34 @@ const handleModalClose = () => {
   isModalOpen.value = false;
   currentRelationship.value = null;
   // Note: Cards stay in slots as per user preference (Option A)
+
+  // Check if game is complete and show completion modal
+  if (isGameComplete.value) {
+    // Small delay to allow match modal to close smoothly
+    setTimeout(() => {
+      isCompletionModalOpen.value = true;
+    }, 300);
+  }
+};
+
+// Completion Modal Handlers
+const handleCompletionClose = () => {
+  isCompletionModalOpen.value = false;
+  // Open gallery when "Continue Exploring" is clicked
+  setTimeout(() => {
+    isGalleryOpen.value = true;
+  }, 200);
+};
+
+const handlePlayAgain = () => {
+  isCompletionModalOpen.value = false;
+  isGalleryOpen.value = false;
+  resetGame();
+};
+
+// Gallery Handlers
+const handleGalleryClose = () => {
+  isGalleryOpen.value = false;
 };
 </script>
 
