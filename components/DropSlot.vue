@@ -71,14 +71,9 @@
 
       <!-- Remove Button -->
       <button
-        :class="[
-          'absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/80 hover:bg-red-500 active:bg-red-600 flex items-center justify-center transition-all duration-200 z-10',
-          isMobile
-            ? isCardTouched
-              ? 'opacity-100'
-              : 'opacity-0 pointer-events-none'
-            : 'opacity-0 group-hover:opacity-100',
-        ]"
+        v-if="!isMobile || isCardTouched"
+        class="absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/80 hover:bg-red-500 active:bg-red-600 flex items-center justify-center transition-all duration-200 z-10 opacity-0 group-hover:opacity-100"
+        :class="{ 'opacity-100': isMobile && isCardTouched }"
         @click.stop="handleRemove"
       >
         <svg
@@ -142,9 +137,12 @@ const isTouchOver = ref(false);
 const slotElement = ref<HTMLElement | null>(null);
 const isCardTouched = ref(false); // Track if card in slot is being touched
 
-// Detect if device is mobile
+// Detect if device is mobile (touch-capable)
 onMounted(() => {
-  isMobile.value = window.innerWidth < GAME_CONFIG.MOBILE_BREAKPOINT;
+  // Check both screen size AND touch capability
+  const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  const isSmallScreen = window.innerWidth < GAME_CONFIG.MOBILE_BREAKPOINT;
+  isMobile.value = hasTouch && isSmallScreen;
 });
 
 // Watch for card changes
@@ -251,6 +249,10 @@ const handleDrop = (event: DragEvent) => {
 };
 
 const handleRemove = () => {
+  // Only allow removal if button is visible (on mobile, card must be touched)
+  if (isMobile.value && !isCardTouched.value) {
+    return; // Button is invisible, don't allow removal
+  }
   emit("cardRemoved", props.slotIndex);
 };
 
