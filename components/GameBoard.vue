@@ -326,16 +326,24 @@
 
     <!-- Onboarding Modal -->
     <OnboardingModal :show="showOnboarding" @close="closeOnboarding" />
+
+    <!-- Loading Screen -->
+    <LoadingScreen
+      :is-visible="isLoading"
+      :loaded-count="loadedCount"
+      :total-count="totalCount"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, computed, watch } from "vue";
+import { ref, nextTick, computed, watch, onMounted } from "vue";
 import { useGameState } from "~/composables/useGameState";
 import type { Card, Relationship } from "~/composables/useGameState";
 import { haptics } from "~/utils/haptics";
 import { GAME_CONFIG } from "~/config/gameConfig";
 import { useOnboarding } from "~/composables/useOnboarding";
+import { useImagePreloader } from "~/composables/useImagePreloader";
 
 const {
   slot1,
@@ -364,6 +372,10 @@ const {
 
 // Onboarding
 const { showOnboarding, closeOnboarding } = useOnboarding();
+
+// Image Preloader
+const { isLoading, loadedCount, totalCount, preloadCards } =
+  useImagePreloader();
 
 // UI State
 const selectedCard = ref<Card | null>(null);
@@ -675,6 +687,11 @@ const handlePlayAgain = () => {
 const handleGalleryClose = () => {
   isGalleryOpen.value = false;
 };
+
+// Preload images on mount
+onMounted(async () => {
+  await preloadCards(allCards.value);
+});
 </script>
 
 <style scoped>
