@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Raleway", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: [
           "ui-monospace",
           "SFMono-Regular",
@@ -19,6 +19,16 @@ export default {
           "Consolas",
           "monospace",
         ],
+      },
+      letterSpacing: {
+        tightest: "-0.03em",
+        tighter: "-0.02em",
+        tight: "-0.01em",
+        normal: "0",
+        wide: "0.01em",
+        wider: "0.02em",
+        widest: "0.1em",
+        "ultra-wide": "0.15em",
       },
       colors: {
         "cyber-blue": "#00d9ff",
