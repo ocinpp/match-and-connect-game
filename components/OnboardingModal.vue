@@ -89,7 +89,7 @@
             <div
               v-if="currentPage === 2"
               key="page2"
-              class="page-content absolute inset-0 px-6 py-6 overflow-y-auto bg-dark-bg flex flex-col justify-center"
+              class="page-content absolute inset-0 px-6 py-6 overflow-y-auto bg-dark-bg flex flex-col"
             >
               <!-- Title -->
               <h2
