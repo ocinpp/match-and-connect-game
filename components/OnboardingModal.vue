@@ -8,13 +8,13 @@
         class="onboarding-modal bg-dark-bg border-2 border-neon-purple rounded-2xl shadow-glow-card max-w-2xl w-full overflow-hidden"
       >
         <!-- Pages Container with Slide Transition -->
-        <div class="relative overflow-hidden min-h-[500px] flex items-center">
+        <div class="relative overflow-hidden min-h-[500px] max-h-[80vh]">
           <!-- Page 1: Welcome Screen -->
           <Transition name="slide">
             <div
               v-if="currentPage === 1"
               key="page1"
-              class="page-content absolute inset-0 px-6 py-8 md:py-12 flex flex-col justify-center"
+              class="page-content absolute inset-0 px-6 py-8 md:py-12 flex flex-col items-center justify-center"
             >
               <!-- Icon/Logo -->
               <div class="text-center mb-6">
@@ -90,6 +90,7 @@
               v-if="currentPage === 2"
               key="page2"
               class="page-content absolute inset-0 px-6 py-6 overflow-y-auto bg-dark-bg flex flex-col"
+              style="touch-action: pan-y; -webkit-overflow-scrolling: touch"
             >
               <!-- Title -->
               <h2

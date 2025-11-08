@@ -43,6 +43,12 @@ onMounted(() => {
     const deltaX = currentX - startX;
     const deltaY = currentY - startY;
 
+    // Check if touch is inside a scrollable element (like modal)
+    const target = e.target as HTMLElement;
+    const scrollableParent = target.closest(
+      '[style*="overflow-y: auto"], .overflow-y-auto, [class*="overflow-y-auto"]'
+    );
+
     // Check if horizontal swipe from edge (swipe-to-go-back gesture)
     const isSwipeFromLeftEdge = startX < 50 && deltaX > 0;
     const isSwipeFromRightEdge = startX > window.innerWidth - 50 && deltaX < 0;
@@ -54,10 +60,13 @@ onMounted(() => {
     }
 
     // Prevent pull-to-refresh (vertical swipe from top)
-    const isAtTop = window.scrollY === 0;
-    const isPullingDown = deltaY > 0;
-    if (isAtTop && isPullingDown && Math.abs(deltaY) > Math.abs(deltaX)) {
-      e.preventDefault();
+    // BUT: Don't prevent if user is scrolling inside a scrollable container (like modal)
+    if (!scrollableParent) {
+      const isAtTop = window.scrollY === 0;
+      const isPullingDown = deltaY > 0;
+      if (isAtTop && isPullingDown && Math.abs(deltaY) > Math.abs(deltaX)) {
+        e.preventDefault();
+      }
     }
   };
 
