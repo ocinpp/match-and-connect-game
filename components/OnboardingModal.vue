@@ -2,10 +2,28 @@
   <Transition name="modal">
     <div
       v-if="show"
-      class="onboarding-overlay fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+      class="onboarding-overlay fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg"
     >
       <div
-        class="onboarding-modal bg-dark-bg border-2 border-neon-purple rounded-2xl shadow-glow-card max-w-2xl w-full overflow-hidden"
+        class="onboarding-modal glass-enhanced rounded-2xl max-w-2xl w-full overflow-hidden"
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(26, 31, 58, 0.95) 0%,
+            rgba(21, 26, 51, 0.95) 100%
+          );
+          border: 2px solid;
+          border-image: linear-gradient(
+              135deg,
+              rgba(255, 0, 110, 0.8),
+              rgba(0, 217, 255, 0.6),
+              rgba(255, 0, 110, 0.8)
+            )
+            1;
+          box-shadow: 0 0 40px rgba(255, 0, 110, 0.4),
+            0 0 80px rgba(0, 217, 255, 0.2),
+            inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+        "
       >
         <!-- Pages Container with Slide Transition -->
         <div class="relative overflow-hidden min-h-[500px] max-h-[80vh]">
