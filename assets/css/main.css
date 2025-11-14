@@ -10,7 +10,10 @@
     --color-cyber-blue: #00d9ff;
     --color-neon-purple: #ff006e;
     --color-matrix-green: #ffd60a;
+    --color-neon-mint: #00ff9f;
+    --color-hot-pink: #ff3366;
     --color-dark-bg: #0a0e27;
+    --color-dark-bg-deep: #050814;
     --color-card-bg: #1a1f3a;
     --color-slot-bg: #151a33;
 
@@ -23,8 +26,48 @@
   }
 
   body {
-    @apply bg-[#0a0e27] text-white font-sans;
+    @apply bg-gradient-to-b from-dark-bg-deep to-dark-bg text-white font-sans;
     letter-spacing: 0.01em; /* Slightly wider for better readability */
+    position: relative;
+  }
+
+  /* Animated Grid Background */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        rgba(0, 217, 255, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Scan Line Effect */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 217, 255, 0.8),
+      transparent
+    );
+    animation: scan-line 8s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
   }
 
   * {
@@ -166,4 +209,85 @@
 .card-dimmed {
   opacity: 0.4;
   filter: grayscale(100%);
+}
+
+/* Holographic Shimmer Effect */
+.holographic-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-shimmer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 217, 255, 0.3) 50%,
+    rgba(255, 0, 110, 0.3) 55%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Gradient Border Effect */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 217, 255, 0.2),
+    rgba(255, 0, 110, 0.2),
+    rgba(255, 214, 10, 0.2)
+  );
+  padding: 2px;
+  border-radius: inherit;
+}
+
+.gradient-border-content {
+  background: var(--color-card-bg);
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+/* Enhanced Glass Effect */
+.glass-enhanced {
+  background: rgba(26, 31, 58, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Particle Effect Container */
+.particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: particle-float 3s ease-out forwards;
+}
+
+/* Ensure content is above background effects */
+.game-board {
+  position: relative;
+  z-index: 2;
 }

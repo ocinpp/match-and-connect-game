@@ -3,15 +3,16 @@
     :class="[
       'game-card',
       'relative w-[150px] h-[225px] md:w-[180px] md:h-[270px] rounded-lg overflow-hidden cursor-pointer',
-      'border-2 transition-all duration-300',
+      'transition-all duration-300',
       isDisabled
-        ? 'opacity-40 cursor-not-allowed border-gray-600'
+        ? 'opacity-40 cursor-not-allowed'
         : isSelected
-        ? 'border-neon-purple ring-neon-purple'
-        : 'border-cyber-blue hover:border-neon-purple',
+        ? 'ring-2 ring-neon-purple'
+        : '',
       isDragging ? 'opacity-50 scale-95' : '',
       isDragMode ? 'drag-mode-active' : '',
       isLongPressing ? 'long-pressing' : '',
+      !isDisabled ? 'holographic-shimmer' : '',
     ]"
     :draggable="!isDisabled"
     @dragstart="handleDragStart"
@@ -23,34 +24,77 @@
     @touchcancel="handleTouchCancel"
     @contextmenu="handleContextMenu"
   >
-    <!-- Card Image -->
-    <div class="absolute inset-0">
-      <img
-        :src="card.imageUrl"
-        :alt="card.title"
-        class="w-full h-full object-cover"
-        loading="lazy"
-      />
-      <!-- Gradient Overlay -->
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent"
-      ></div>
-    </div>
-
-    <!-- Card Title -->
-    <div class="absolute bottom-0 left-0 right-0 p-2 md:p-4">
-      <h3
-        class="text-white font-bold text-sm md:text-base lg:text-lg text-center drop-shadow-lg"
-      >
-        {{ card.title }}
-      </h3>
-    </div>
-
-    <!-- Glow Effect when not disabled -->
+    <!-- Gradient Border -->
     <div
       v-if="!isDisabled"
-      class="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-300 shadow-glow-card"
-    ></div>
+      :class="[
+        'absolute inset-0 rounded-lg p-[2px]',
+        isSelected
+          ? 'bg-gradient-to-br from-neon-purple via-hot-pink to-neon-purple'
+          : 'bg-gradient-to-br from-cyber-blue/40 via-neon-purple/30 to-matrix-green/40',
+      ]"
+    >
+      <div class="absolute inset-[2px] rounded-lg overflow-hidden bg-card-bg">
+        <!-- Card Image -->
+        <div class="absolute inset-0">
+          <img
+            :src="card.imageUrl"
+            :alt="card.title"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <!-- Gradient Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent"
+          ></div>
+        </div>
+
+        <!-- Card Title -->
+        <div class="absolute bottom-0 left-0 right-0 p-2 md:p-4">
+          <h3
+            class="text-white font-bold text-sm md:text-base lg:text-lg text-center drop-shadow-lg"
+          >
+            {{ card.title }}
+          </h3>
+        </div>
+
+        <!-- Enhanced Glow Effect on Hover -->
+        <div
+          class="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-300"
+          :style="{
+            boxShadow: isSelected
+              ? '0 0 30px rgba(255, 0, 110, 0.8), inset 0 0 20px rgba(255, 0, 110, 0.3)'
+              : '0 0 25px rgba(0, 217, 255, 0.6), inset 0 0 15px rgba(0, 217, 255, 0.2)',
+          }"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Disabled State (No Gradient Border) -->
+    <div v-else class="absolute inset-0 rounded-lg border-2 border-gray-600">
+      <!-- Card Image -->
+      <div class="absolute inset-0">
+        <img
+          :src="card.imageUrl"
+          :alt="card.title"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+        <!-- Gradient Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent"
+        ></div>
+      </div>
+
+      <!-- Card Title -->
+      <div class="absolute bottom-0 left-0 right-0 p-2 md:p-4">
+        <h3
+          class="text-white font-bold text-sm md:text-base lg:text-lg text-center drop-shadow-lg"
+        >
+          {{ card.title }}
+        </h3>
+      </div>
+    </div>
 
     <!-- Disabled Overlay -->
     <div

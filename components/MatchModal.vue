@@ -6,16 +6,42 @@
         class="fixed inset-0 z-50 flex items-center justify-center p-4"
         @click.self="close"
       >
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <!-- Enhanced Backdrop -->
+        <div class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
 
-        <!-- Modal Content -->
+        <!-- Modal Content with Enhanced Glass Effect -->
         <div
-          class="relative bg-card-bg border-2 border-matrix-green rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-glow-highlight animate-match-pulse"
+          class="relative glass-enhanced rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-match-pulse"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(26, 31, 58, 0.95) 0%,
+              rgba(21, 26, 51, 0.95) 100%
+            );
+            border: 2px solid;
+            border-image: linear-gradient(
+                135deg,
+                rgba(255, 214, 10, 0.8),
+                rgba(0, 255, 159, 0.6),
+                rgba(255, 214, 10, 0.8)
+              )
+              1;
+            box-shadow: 0 0 40px rgba(255, 214, 10, 0.4),
+              0 0 80px rgba(0, 255, 159, 0.2),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+          "
         >
           <!-- Header -->
           <div
-            class="sticky top-0 bg-card-bg border-b border-matrix-green/30 p-6 z-10"
+            class="sticky top-0 border-b border-neon-mint/20 p-6 z-10"
+            style="
+              background: linear-gradient(
+                180deg,
+                rgba(26, 31, 58, 0.98) 0%,
+                rgba(26, 31, 58, 0.95) 100%
+              );
+              backdrop-filter: blur(10px);
+            "
           >
             <div class="flex items-start justify-between">
               <div class="flex-1">
@@ -35,7 +61,13 @@
                     />
                   </svg>
                   <div>
-                    <h2 class="text-3xl font-bold text-matrix-green">
+                    <h2
+                      class="text-3xl font-bold text-neon-mint"
+                      style="
+                        text-shadow: 0 0 20px rgba(0, 255, 159, 0.5),
+                          0 0 40px rgba(0, 255, 159, 0.3);
+                      "
+                    >
                       Match Found!
                     </h2>
                     <p

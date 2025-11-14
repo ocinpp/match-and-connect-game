@@ -266,6 +266,9 @@
       :message="toastMessage"
     />
 
+    <!-- Particle Effect for Successful Matches -->
+    <ParticleEffect :trigger="showParticles" />
+
     <!-- Completion Modal -->
     <CompletionModal
       :is-open="isCompletionModalOpen"
@@ -389,6 +392,7 @@ const shouldShakeSlots = ref(false);
 const toastMessage = ref("");
 const toastRef = ref<InstanceType<typeof ToastNotification> | null>(null);
 const userCancelledCheckMatch = ref(false);
+const showParticles = ref(false); // Trigger particle effect
 
 // ===== NEW STATE - MOBILE TOUCH DRAG =====
 const activeDragCard = ref<Card | null>(null);
@@ -621,6 +625,17 @@ const handleCheckMatch = async () => {
     isNewDiscovery.value = recordMatch(relationship);
     currentRelationship.value = relationship;
     isModalOpen.value = true;
+
+    // Trigger particle effect ONLY for NEW discoveries
+    if (isNewDiscovery.value) {
+      showParticles.value = false;
+      nextTick(() => {
+        showParticles.value = true;
+        setTimeout(() => {
+          showParticles.value = false;
+        }, 100);
+      });
+    }
 
     // Stop timer if game is complete
     if (isGameComplete.value) {

@@ -15,18 +15,21 @@ Perfect for AI enthusiasts, ML students, and anyone interested in understanding 
 ## Features
 
 ### Core Gameplay
+
 - **2-Row Board Layout**: Two rows for available cards with horizontal scrolling, and dedicated slots for matching
 - **Card Relationships**: Discover surprising connections between cards with detailed relationship information
 - **Smart Matching**: Not all card pairs have connections - find the ones that do!
 - **Animations**: Smooth transitions, glow effects, shake animations, and match celebrations
 
 ### Interaction Modes
+
 - **Desktop Drag & Drop**: Click and drag cards to slots with native HTML5 drag & drop
 - **Mobile Long Press Drag**: Hold card for 0.6 seconds (with visual progress ring), then drag to slot
 - **Mobile Tap-to-Select**: Tap a card to select, then tap an empty slot to place
 - **Hybrid Mode**: Both drag and tap modes available simultaneously on mobile
 
 ### Mobile-Optimized Features
+
 - **Long Press Detection**: 600ms hold time with visual progress ring indicator
 - **Movement Cancellation**: Automatically cancels long press if finger moves >10px (scroll-friendly)
 - **Floating Ghost Card**: Semi-transparent card follows your finger during drag
@@ -35,11 +38,23 @@ Perfect for AI enthusiasts, ML students, and anyone interested in understanding 
 - **Touch Callout Disabled**: No iOS callout menu interference
 
 ### User Experience
+
 - **Onboarding Modal**: Interactive 2-page tutorial with smooth slide transitions and localStorage tracking
 - **Responsive Design**: Optimized for mobile (< 1024px) and desktop with vertically centered content
 - **11 Unique Themes**: Choose from Sci-Fi, Mythology, AI, Space, Anime, Mini, and more
-- **Cyber/Futuristic Theme**: Stylish design with neon purple, cyber blue, and matrix green colors
+- **Enhanced Cyberpunk Theme**: Stylish design with neon colors, animated grid background, scan line effects, and holographic shimmer
 - **Dynamic Viewport Height**: Uses `dvh` units for better mobile browser compatibility
+
+### Visual Effects
+
+- **Animated Grid Background**: Subtle moving grid lines creating a cyberpunk "digital space" feel
+- **Scan Line Effect**: Horizontal scan line sweeping across the screen for retro-futuristic CRT aesthetic
+- **Gradient Borders**: Beautiful gradient borders on cards with color transitions
+- **Holographic Shimmer**: Shimmer effect on cards for a futuristic look
+- **Smooth Card Drop Animation**: Cards animate into slots with a satisfying bounce effect (0.5s)
+- **Smart Particle Effects**: Celebration confetti appears ONLY for newly discovered relationships (not for re-discovered ones)
+- **Enhanced Glassmorphism**: Backdrop blur effects on modals for depth
+- **Responsive Drop Zones**: Visual feedback with color and scale changes when dragging over slots
 
 ## Tech Stack
 
@@ -114,9 +129,12 @@ export const GAME_CONFIG = {
 4. **Remove Cards**: Tap the ✕ button on a card in a slot to remove it
 
 ### Matching
+
 - Fill both slots with cards you think are connected
 - Click/tap "Check Match" to reveal the relationship
 - **Match Found**: A modal shows the connection details
+  - **New Discovery**: Confetti celebration appears! 🎉
+  - **Already Discovered**: Modal shows without confetti
 - **No Match**: Slots shake and a toast notification appears
 - Cards remain in slots after checking - remove them manually to try new combinations
 
@@ -127,10 +145,12 @@ drop-and-match/
 ├── components/
 │   ├── GameBoard.vue          # Main game board orchestrator
 │   ├── GameCard.vue           # Individual card with touch/drag handlers
-│   ├── DropSlot.vue           # Drop slot with mobile touch detection
-│   ├── MatchModal.vue         # Match result modal
+│   ├── DropSlot.vue           # Drop slot with mobile touch detection and animations
+│   ├── MatchModal.vue         # Match result modal with glassmorphism
+│   ├── CompletionModal.vue    # Game completion modal
 │   ├── OnboardingModal.vue    # First-time tutorial modal
-│   └── ToastNotification.vue  # Toast notification component
+│   ├── ToastNotification.vue  # Toast notification component
+│   └── ParticleEffect.vue     # Particle celebration effects
 ├── composables/
 │   ├── useGameState.ts        # Game state management
 │   ├── useTheme.ts            # Theme utilities
@@ -254,17 +274,35 @@ Add relationships between cards in `data/cards.json`:
 
 ### Customizing Colors
 
-Edit `tailwind.config.js` to change the color scheme:
+The enhanced cyberpunk theme uses an extended color palette. Edit `tailwind.config.js` to customize:
 
 ```javascript
 colors: {
-  'cyber-blue': '#00f0ff',
-  'neon-purple': '#b026ff',
-  'matrix-green': '#00ff41',
-  'dark-bg': '#0a0a0a',
+  'cyber-blue': '#00d9ff',
+  'neon-purple': '#ff006e',
+  'matrix-green': '#39ff14',
+  'matrix-yellow': '#ffd60a',
+  'neon-mint': '#00ff9f',
+  'hot-pink': '#ff3366',
+  'dark-bg': '#0f0f23',
+  'dark-bg-deep': '#050814',
+  'card-bg': '#1a1a2e',
+  'slot-bg': '#16213e',
   // Add your custom colors here
 }
 ```
+
+**Visual Effects Customization:**
+
+Edit `assets/css/main.css` to adjust:
+- **Grid animation speed**: Change `animation: grid-move 20s linear infinite;`
+- **Scan line speed**: Change `animation: scan-line 8s linear infinite;`
+- **Shimmer effect**: Modify `.holographic-shimmer` animation timing
+- **Particle effects**: Adjust particle count and animation in `components/ParticleEffect.vue`
+
+Edit `components/DropSlot.vue` to customize:
+- **Card drop animation speed**: Change `.card-drop-enter-active` duration (default: 0.5s)
+- **Drop animation style**: Modify `@keyframes card-drop-in` for different effects
 
 ### Onboarding Modal
 

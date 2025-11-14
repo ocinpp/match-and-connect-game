@@ -5,12 +5,30 @@
         v-if="isOpen"
         class="fixed inset-0 z-50 flex items-center justify-center p-4"
       >
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
+        <!-- Enhanced Backdrop -->
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-lg"></div>
 
-        <!-- Modal Content -->
+        <!-- Modal Content with Enhanced Glass Effect -->
         <div
-          class="relative bg-gradient-to-br from-card-bg to-dark-bg border-2 border-matrix-green rounded-xl max-w-xl w-full shadow-glow-highlight animate-match-pulse overflow-hidden"
+          class="relative glass-enhanced rounded-xl max-w-xl w-full animate-match-pulse overflow-hidden"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(26, 31, 58, 0.95) 0%,
+              rgba(10, 14, 39, 0.95) 100%
+            );
+            border: 2px solid;
+            border-image: linear-gradient(
+                135deg,
+                rgba(255, 214, 10, 0.9),
+                rgba(0, 255, 159, 0.7),
+                rgba(255, 214, 10, 0.9)
+              )
+              1;
+            box-shadow: 0 0 50px rgba(255, 214, 10, 0.5),
+              0 0 100px rgba(0, 255, 159, 0.3),
+              inset 0 2px 0 0 rgba(255, 255, 255, 0.1);
+          "
         >
           <!-- Confetti/Celebration Background Effect -->
           <div class="absolute inset-0 opacity-20 pointer-events-none">
@@ -54,7 +72,13 @@
             </div>
 
             <!-- Title -->
-            <h2 class="text-4xl md:text-5xl font-bold text-matrix-green mb-3">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-neon-mint mb-3"
+              style="
+                text-shadow: 0 0 30px rgba(0, 255, 159, 0.6),
+                  0 0 60px rgba(0, 255, 159, 0.4);
+              "
+            >
               Congratulations!
             </h2>
             <p class="text-xl text-white mb-8">All Connections Discovered!</p>

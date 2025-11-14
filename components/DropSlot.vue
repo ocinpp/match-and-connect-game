@@ -17,86 +17,117 @@
     @click="handleClick"
   >
     <!-- Empty Slot State -->
-    <div
-      v-if="!card"
-      class="absolute inset-0 flex flex-col items-center justify-center text-cyber-blue/50"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-16 h-16 mb-2"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 4v16m8-8H4"
-        />
-      </svg>
-      <p class="text-sm font-semibold">Slot {{ slotIndex }}</p>
-      <p class="text-xs mt-1">Drop or Tap Card</p>
-    </div>
-
-    <!-- Card in Slot -->
-    <div
-      v-else
-      class="absolute inset-0 cursor-pointer group"
-      @click.stop
-      @touchstart="handleCardTouch"
-      @touchend="handleCardTouchEnd"
-    >
-      <!-- Card Image -->
-      <div class="absolute inset-0">
-        <img
-          :src="card.imageUrl"
-          :alt="card.title"
-          class="w-full h-full object-cover rounded-lg"
-        />
-        <!-- Gradient Overlay -->
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent rounded-lg"
-        ></div>
-      </div>
-
-      <!-- Card Title -->
-      <div class="absolute bottom-0 left-0 right-0 p-2 md:p-4">
-        <h3
-          class="text-white font-bold text-sm md:text-base lg:text-lg text-center drop-shadow-lg"
-        >
-          {{ card.title }}
-        </h3>
-      </div>
-
-      <!-- Remove Button -->
-      <button
-        v-if="!isMobile || isCardTouched"
-        class="absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/80 hover:bg-red-500 active:bg-red-600 flex items-center justify-center transition-all duration-200 z-10 opacity-0 group-hover:opacity-100"
-        :class="{ 'opacity-100': isMobile && isCardTouched }"
-        @click.stop="handleRemove"
+    <Transition name="slot-content-fade">
+      <div
+        v-if="!card"
+        :class="[
+          'absolute inset-0 flex flex-col items-center justify-center transition-all duration-200',
+          showHighlight
+            ? 'text-matrix-green/30 scale-105'
+            : 'text-cyber-blue/50',
+        ]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5 text-white"
+          :class="[
+            'mb-2 transition-all duration-200',
+            showHighlight ? 'w-18 h-18 opacity-30' : 'w-16 h-16 opacity-100',
+          ]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          :stroke-width="showHighlight ? 2 : 2"
         >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
+            d="M12 4v16m8-8H4"
           />
         </svg>
-      </button>
+        <p
+          :class="[
+            'font-semibold transition-all duration-200',
+            showHighlight ? 'text-sm opacity-30' : 'text-sm opacity-100',
+          ]"
+        >
+          Slot {{ slotIndex }}
+        </p>
+        <p
+          :class="[
+            'mt-1 transition-all duration-200',
+            showHighlight ? 'text-xs opacity-0' : 'text-xs opacity-100',
+          ]"
+        >
+          {{ showHighlight ? "Drop Here!" : "Drop or Tap Card" }}
+        </p>
+      </div>
+    </Transition>
 
-      <!-- Glow Effect -->
+    <!-- Card in Slot with Animation -->
+    <Transition name="card-drop" :appear="true">
       <div
-        class="absolute inset-0 pointer-events-none rounded-lg animate-glow-pulse"
-      ></div>
-    </div>
+        v-if="card"
+        :key="card.id"
+        class="absolute inset-0 cursor-pointer group"
+        @click.stop
+        @touchstart="handleCardTouch"
+        @touchend="handleCardTouchEnd"
+      >
+        <!-- Card Image -->
+        <div class="absolute inset-0">
+          <img
+            :src="card.imageUrl"
+            :alt="card.title"
+            class="w-full h-full object-cover rounded-lg"
+          />
+          <!-- Gradient Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent rounded-lg"
+          ></div>
+        </div>
+
+        <!-- Card Title -->
+        <div class="absolute bottom-0 left-0 right-0 p-2 md:p-4">
+          <h3
+            class="text-white font-bold text-sm md:text-base lg:text-lg text-center drop-shadow-lg"
+          >
+            {{ card.title }}
+          </h3>
+        </div>
+
+        <!-- Remove Button with Enhanced Style -->
+        <button
+          v-if="!isMobile || isCardTouched"
+          class="absolute top-2 right-2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 z-10 opacity-0 group-hover:opacity-100"
+          :class="{ 'opacity-100': isMobile && isCardTouched }"
+          style="
+            background: linear-gradient(135deg, #ff3366, #ff006e);
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.5);
+          "
+          @click.stop="handleRemove"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <!-- Glow Effect -->
+        <div
+          class="absolute inset-0 pointer-events-none rounded-lg animate-glow-pulse"
+        ></div>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -209,19 +240,32 @@ const showHighlight = computed(() => {
 // ===== EXISTING DESKTOP HANDLERS - DO NOT MODIFY =====
 
 const handleDragOver = (event: DragEvent) => {
-  if (isMobile.value || props.card) {
-    // Don't allow drop if on mobile or slot is already filled
-    event.dataTransfer!.dropEffect = "none";
+  if (isMobile.value) {
     return;
   }
 
+  if (props.card) {
+    // Don't allow drop if slot is already filled
+    event.dataTransfer!.dropEffect = "none";
+    isDragOver.value = false;
+    return;
+  }
+
+  // Allow drop
   isDragOver.value = true;
   event.dataTransfer!.dropEffect = "move";
 };
 
-const handleDragLeave = () => {
+const handleDragLeave = (event: DragEvent) => {
   if (!isMobile.value) {
-    isDragOver.value = false;
+    // Only set to false if we're actually leaving the element
+    // Check if the related target is not a child of this element
+    const target = event.currentTarget as HTMLElement;
+    const relatedTarget = event.relatedTarget as HTMLElement;
+
+    if (!target.contains(relatedTarget)) {
+      isDragOver.value = false;
+    }
   }
 };
 
@@ -230,12 +274,17 @@ const handleDrop = (event: DragEvent) => {
     return;
   }
 
+  // Always reset drag over state
   isDragOver.value = false;
 
   if (props.card) {
     // Slot already has a card
     return;
   }
+
+  // Prevent default to allow drop
+  event.preventDefault();
+  event.stopPropagation();
 
   try {
     const cardData = event.dataTransfer?.getData("application/json");
@@ -284,5 +333,48 @@ const handleCardTouchEnd = () => {
   flex-shrink: 0;
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* Card Drop Animation */
+.card-drop-enter-active {
+  animation: card-drop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-drop-leave-active {
+  animation: card-drop-out 0.25s ease-out;
+}
+
+@keyframes card-drop-in {
+  0% {
+    opacity: 1;
+    transform: scale(0.7) translateY(-30px) rotate(-5deg);
+  }
+  60% {
+    transform: scale(1.05) translateY(0) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0);
+  }
+}
+
+@keyframes card-drop-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85) translateY(10px);
+  }
+}
+
+/* Slot Content Fade - Instant fade out when card is dropped */
+.slot-content-fade-leave-active {
+  transition: opacity 0.05s ease-out;
+}
+
+.slot-content-fade-leave-to {
+  opacity: 0;
 }
 </style>
